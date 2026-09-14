@@ -15,7 +15,7 @@ const Layout = () => {
   }, [location.pathname])
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#0D0F12] text-white">
       <PromoBanner />
       <TopBar />
       <Navigation />

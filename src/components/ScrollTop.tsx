@@ -30,7 +30,7 @@ const ScrollTop = () => {
       }`}
     >
       <span className="sr-only">Scroll to top</span>
-      <span className="absolute inset-0 rounded-full opacity-60 blur-md bg-gradient-to-br from-[#22c55e] to-[#16a34a]" />
+      <span className="absolute inset-0 rounded-full opacity-60 blur-md bg-gradient-to-br from-[#C6FF00] to-[#C6FF00]" />
       <span className="relative z-10 flex h-full w-full items-center justify-center">
         <ArrowUp className="h-5 w-5" />
       </span>

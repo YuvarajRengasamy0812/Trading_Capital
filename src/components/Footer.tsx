@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 
-const PROP_LOGIN_URL = 'https://secure.libertymarkets.org/prop/login'
-const PROP_REGISTER_URL = 'https://secure.libertymarkets.org/prop/register'
-const PROP_ADMIN_URL = 'https://secure.libertymarkets.org/prop/admin'
+const TRADER_AREA_URL = '/login'
+const CHOOSE_ACCOUNT_URL = '/challenges'
 
 // const WhatsAppIcon = () => (
 //   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -56,25 +55,23 @@ const XIcon = () => (
 const Footer = () => {
   const quickLinks = [
     { label: 'FAQ', path: '/faq' },
-    { label: 'Challenges', path: '/challenges' },
+    { label: 'Programs', path: '/challenges' },
     { label: 'Affiliate Program', path: '/affiliate' },
-    { label: 'Prop Login', path: PROP_LOGIN_URL },
-    { label: 'Prop Sign Up', path: PROP_REGISTER_URL },
-    { label: 'Prop Admin', path: PROP_ADMIN_URL },
+    { label: 'Trader Area', path: TRADER_AREA_URL },
+    { label: 'Choose Your Account', path: CHOOSE_ACCOUNT_URL },
     { label: 'Terms & Conditions', path: '/terms' },
   ]
 
   const links = {
     Trading: [
       { label: 'Home', path: '/' },
-      { label: 'Challenges', path: '/challenges' },
+      { label: 'Programs', path: '/challenges' },
       { label: 'How It Works', path: '/#how-it-works' },
       { label: 'FAQ', path: '/faq' },
     ],
     Company: [
       { label: 'About Us', path: '/about' },
       { label: 'Affiliate', path: '/affiliate' },
-      { label: 'Merchandise', path: '/merchandise' },
       { label: 'Contact', path: '/contact' },
     ],
     Legal: [
@@ -85,14 +82,14 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: LinkedInIcon, href: 'https://www.linkedin.com/company/libertyfunded', color: 'hover:bg-blue-700 hover:text-white' },
-    { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/libertyfunded', color: 'hover:bg-blue-600 hover:text-white' },
-    { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/libertyfunded', color: 'hover:bg-pink-500 hover:text-white' },
-    { name: 'X', icon: XIcon, href: 'https://x.com/libertyfunded', color: 'hover:bg-black hover:text-white hover:border-white' },
+    { name: 'LinkedIn', icon: LinkedInIcon, href: 'https://www.linkedin.com/company/tradingcapital', color: 'hover:bg-blue-700 hover:text-white' },
+    { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/tradingcapital', color: 'hover:bg-blue-600 hover:text-white' },
+    { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/tradingcapital', color: 'hover:bg-pink-500 hover:text-white' },
+    { name: 'X', icon: XIcon, href: 'https://x.com/tradingcapital', color: 'hover:bg-[#0D0F12] hover:text-white hover:border-white' },
   ]
 
   const renderFooterLink = (item: { label: string; path: string }) => {
-    const className = "text-zinc-500 hover:text-[#22c55e] transition-colors text-sm"
+    const className = "text-zinc-500 hover:text-[#C6FF00] transition-colors text-sm"
 
     if (item.path.startsWith('http')) {
       return (
@@ -110,20 +107,20 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-black border-t border-zinc-900">
+    <footer className="bg-[#0D0F12] border-t border-zinc-900">
       <div className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
-            TRADE UP TO <span className="text-[#22c55e]">$2M</span>,
+            YOUR STRATEGY. <span className="text-[#C6FF00]">OUR CAPITAL.</span>
             <br />
-            GET PAID <span className="text-green-400">100%</span> ON DEMAND
+            CHOOSE YOUR ACCOUNT
           </h2>
-          <a href={PROP_REGISTER_URL}>
+          <a href={CHOOSE_ACCOUNT_URL}>
             <Button
               size="lg"
-              className="bg-[#22c55e] hover:bg-[#4ade80] text-white font-bold px-10 py-7 text-lg glow-primary"
+              className="bg-[#C6FF00] hover:bg-[#DFFF66] text-black font-bold px-10 py-7 text-lg glow-primary"
             >
-              Get Funded
+              Choose Your Account
             </Button>
           </a>
         </div>
@@ -134,7 +131,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-12 mb-12">
             <div>
               <Link to="/" className="flex items-center mb-4">
-                <img src="/liberty-markets-logo.webp" alt="Liberty Markets" className="h-14 w-auto" />
+                <img src="/trading-capital-logo.png" alt="Trading Capital" className="h-12 w-auto" />
               </Link>
               <p className="text-zinc-500 text-sm">Trade without limits. Scale without fear.</p>
             </div>
@@ -165,7 +162,7 @@ const Footer = () => {
           </div>
 
           <div className="pt-8 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-[#22c55e] text-sm font-medium tracking-wide">
+            <p className="text-[#C6FF00] text-sm font-medium tracking-wide">
               Trade Without Limits. Scale Without Fear.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
@@ -184,35 +181,23 @@ const Footer = () => {
 
           <div className="mt-12 pt-8 border-t border-zinc-900">
             <div className="max-w-6xl mx-auto">
-              <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-[#22c55e] via-[#16a34a] to-[#22c55e] shadow-[0_0_30px_rgba(34,197,94,0.3),0_0_60px_rgba(22,163,74,0.15)]">
+              <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-[#C6FF00] via-[#C6FF00] to-[#C6FF00] shadow-[0_0_30px_rgba(198,255,0,0.3),0_0_60px_rgba(198,255,0,0.15)]">
                 <div className="rounded-2xl bg-zinc-950/95 backdrop-blur-sm px-8 py-10 md:px-12 md:py-12">
                   <div className="text-zinc-500 text-xs leading-relaxed space-y-4 text-center">
                     <p>
-                      <span className="text-zinc-300 font-semibold">Liberty Funded</span> is a trading program
-                      operated under <span className="text-zinc-300 font-semibold">Liberty Markets Ltd</span>, an
-                      International Business Company incorporated in St. Lucia with registration number{' '}
-                      <span className="text-zinc-400">2025-00381</span>. The website{' '}
-                      <a
-                        href="https://www.libertyfunded.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#22c55e] hover:text-[#4ade80] underline"
-                      >
-                        www.libertyfunded.com
-                      </a>{' '}
-                      is owned and operated by Liberty Markets Ltd. The information provided on this website is for
-                      informational purposes only and should not be considered as financial advice, investment advice,
-                      or a recommendation to trade. Liberty Markets Ltd does not provide brokerage services or
-                      investment advisory services.
+                      <span className="text-zinc-300 font-semibold">Trading Capital</span> is a proprietary trading
+                      evaluation firm dedicated to identifying skilled traders through structured funding challenges.
+                      Our programs are designed to assess trading performance, discipline, and risk management under
+                      predefined rules within a simulated trading environment.
                     </p>
 
-                    <p className="text-[#22c55e] font-bold text-sm">
-                      Liberty Funded provides evaluation services in a simulated environment and does not act as a broker or accept customer deposits for investment purposes. Participation in our programs is intended for educational and evaluation purposes only.
+                    <p className="text-[#C6FF00] font-bold text-sm">
+                      Trading involves significant risk and may not be suitable for everyone. Trading Capital programs, account structures and services are subject to the applicable Terms & Conditions, Trading Rules and jurisdictional restrictions.
                     </p>
 
                     <p>
                       Our website may contain links or redirections to third-party websites for additional services or
-                      information. Liberty Markets Ltd does not endorse or recommend any products or services offered
+                      information. Trading Capital does not endorse or recommend any products or services offered
                       by third parties and shall not be held responsible for the content, policies, or services
                       provided by such external websites.
                     </p>
@@ -246,8 +231,8 @@ const Footer = () => {
               </div>
 
               <div className="mt-8 text-center text-zinc-600 text-xs">
-                <p>© 2026 Liberty Markets Ltd. All rights reserved.</p>
-                <p className="mt-1">Liberty Funded is operated by Liberty Markets Ltd.</p>
+                <p>&copy; 2026 Trading Capital. All rights reserved.</p>
+                <p className="mt-1">Structured funding challenges for disciplined traders worldwide.</p>
               </div>
             </div>
           </div>

@@ -1,16 +1,13 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { 
   TrendingUp, Check, ArrowRight, Users, Wallet, 
-  Star, BarChart3, Shield, Sparkles,
-  CreditCard, Bitcoin, Landmark, Building2,
+  Star, BarChart3, Shield,
   ChevronRight, Award, Rocket, 
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Slider } from '@/components/ui/slider'
 import ChallengeSelector from '@/components/ChallengeSelector'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -27,10 +24,10 @@ const HERO_PARTICLES = Array.from({ length: 20 }, (_, i) => ({
 // Neon Text Effect Component - Brand Colors
 const NeonText = ({ children, color = 'cyan', className = '' }: { children: React.ReactNode, color?: 'cyan' | 'purple' | 'green' | 'pink', className?: string }) => {
   const colorClasses = {
-    cyan: 'text-[#22c55e] drop-shadow-[0_0_10px_rgba(34,197,94,0.8)] drop-shadow-[0_0_20px_rgba(34,197,94,0.5)]',
-    purple: 'text-[#16a34a] drop-shadow-[0_0_10px_rgba(22,163,74,0.8)] drop-shadow-[0_0_20px_rgba(22,163,74,0.5)]',
-    green: 'text-[#16a34a] drop-shadow-[0_0_10px_rgba(22,163,74,0.8)] drop-shadow-[0_0_20px_rgba(22,163,74,0.5)]',
-    pink: 'text-[#22c55e] drop-shadow-[0_0_10px_rgba(34,197,94,0.8)] drop-shadow-[0_0_20px_rgba(34,197,94,0.5)]'
+    cyan: 'text-[#C6FF00] drop-shadow-[0_0_10px_rgba(198,255,0,0.8)] drop-shadow-[0_0_20px_rgba(198,255,0,0.5)]',
+    purple: 'text-[#C6FF00] drop-shadow-[0_0_10px_rgba(198,255,0,0.8)] drop-shadow-[0_0_20px_rgba(198,255,0,0.5)]',
+    green: 'text-[#C6FF00] drop-shadow-[0_0_10px_rgba(198,255,0,0.8)] drop-shadow-[0_0_20px_rgba(198,255,0,0.5)]',
+    pink: 'text-[#C6FF00] drop-shadow-[0_0_10px_rgba(198,255,0,0.8)] drop-shadow-[0_0_20px_rgba(198,255,0,0.5)]'
   }
   return <span className={`${colorClasses[color]} ${className}`}>{children}</span>
 }
@@ -38,8 +35,8 @@ const NeonText = ({ children, color = 'cyan', className = '' }: { children: Reac
 // Animated Background Grid
 const AnimatedGrid = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(22,163,74,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-    <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+    <div className="absolute inset-0 bg-[linear-gradient(rgba(198,255,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(198,255,0,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+    <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F12] via-transparent to-[#0D0F12]" />
   </div>
 )
 
@@ -50,7 +47,7 @@ const FloatingParticles = () => {
       {HERO_PARTICLES.map((p) => (
         <div
           key={p.id}
-          className="absolute rounded-full bg-[#22c55e]/30 animate-pulse"
+          className="absolute rounded-full bg-[#C6FF00]/30 animate-pulse"
           style={{
             left: p.left,
             top: p.top,
@@ -90,14 +87,14 @@ const HeroSection = () => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen bg-black overflow-hidden pt-10">
+    <section ref={sectionRef} className="relative min-h-screen bg-[#0D0F12] overflow-hidden pt-10">
       <AnimatedGrid />
       <FloatingParticles />
       
       {/* Background Glows */}
-      <GlowingOrb color="radial-gradient(circle, rgba(34,197,94,0.35), transparent)" className="hero-glow top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[800px]" />
-      <GlowingOrb color="radial-gradient(circle, rgba(22,163,74,0.28), transparent)" className="top-1/3 right-0 w-[600px] h-[600px]" />
-      <GlowingOrb color="radial-gradient(circle, rgba(34,197,94,0.2), transparent)" className="bottom-0 left-0 w-[500px] h-[500px]" />
+      <GlowingOrb color="radial-gradient(circle, rgba(198,255,0,0.35), transparent)" className="hero-glow top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[800px]" />
+      <GlowingOrb color="radial-gradient(circle, rgba(198,255,0,0.28), transparent)" className="top-1/3 right-0 w-[600px] h-[600px]" />
+      <GlowingOrb color="radial-gradient(circle, rgba(198,255,0,0.2), transparent)" className="bottom-0 left-0 w-[500px] h-[500px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -107,35 +104,38 @@ const HeroSection = () => {
             <div className="hero-badge flex flex-wrap items-center gap-3 mb-8">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-zinc-900/80 border border-zinc-800 rounded-full">
                 <Users className="w-4 h-4 text-amber-400" />
-                <span className="text-zinc-300 text-sm"><span className="text-white font-bold">50,000+</span> TRADERS</span>
+                <span className="text-zinc-300 text-sm">Structured funding challenges</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 bg-zinc-900/80 border border-zinc-800 rounded-full">
                 <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                <span className="text-zinc-300 text-sm"><span className="text-white font-bold">4.9</span> RATING</span>
+                <span className="text-zinc-300 text-sm">Simulated evaluation rules</span>
               </div>
             </div>
 
             {/* Title with Neon Effect */}
             <div className="mb-8">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tighter">
-                <div className="hero-title-line text-white mb-2">TRADE</div>
+                <div className="hero-title-line text-white mb-2">YOUR</div>
                 <div className="hero-title-line mb-2">
-                  <NeonText color="cyan" className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl">WITHOUT</NeonText>
+                  <NeonText color="cyan" className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl">STRATEGY.</NeonText>
                 </div>
                 <div className="hero-title-line">
-                  <NeonText color="purple" className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl">LIMITS</NeonText>
+                  <NeonText color="purple" className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl">OUR CAPITAL.</NeonText>
                 </div>
               </h1>
+              <p className="hero-subtitle mt-6 max-w-2xl text-lg text-zinc-300">
+                Prove your trading ability. Access greater capital. Build your path to scale.
+              </p>
             </div>
 
             {/* Animated Subtitle */}
             <div className="hero-subtitle flex flex-wrap items-center gap-4 mb-8">
               {[
-                { icon: BarChart3, text: 'MT5 Available', bg: 'bg-green-500/20', iconClass: 'text-green-400' },
-                { icon: Wallet, text: 'Get Paid 100% on Demand', bg: 'bg-[#22c55e]/20', iconClass: 'text-[#22c55e]' },
-                { icon: TrendingUp, text: 'Up to $2M Capital', bg: 'bg-[#16a34a]/20', iconClass: 'text-[#16a34a]' }
+                { icon: BarChart3, text: 'Clear risk parameters', bg: 'bg-[#C6FF00]/20', iconClass: 'text-[#C6FF00]' },
+                { icon: Wallet, text: '80 / 20 profit split', bg: 'bg-[#C6FF00]/20', iconClass: 'text-[#C6FF00]' },
+                { icon: TrendingUp, text: '14-day payout cycle', bg: 'bg-[#C6FF00]/20', iconClass: 'text-[#C6FF00]' }
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 px-3 py-2 bg-zinc-900/60 border border-zinc-800 rounded-lg hover:border-[#22c55e]/50 transition-colors">
+                <div key={i} className="flex items-center gap-2 px-3 py-2 bg-zinc-900/60 border border-zinc-800 rounded-lg hover:border-[#C6FF00]/50 transition-colors">
                   <div className={`w-8 h-8 rounded ${item.bg} flex items-center justify-center`}>
                     <item.icon className={`w-4 h-4 ${item.iconClass}`} />
                   </div>
@@ -147,15 +147,15 @@ const HeroSection = () => {
             {/* CTA Buttons */}
             <div className="hero-cta flex flex-wrap items-center gap-4 mb-12">
               <Link to="/challenges">
-                <Button size="lg" className="bg-gradient-to-r from-[#22c55e] to-[#16a34a] hover:from-[#4ade80] hover:to-[#22c55e] text-black font-bold px-8 py-6 text-lg shadow-[0_0_30px_rgba(34,197,94,0.4)] hover:shadow-[0_0_40px_rgba(34,197,94,0.6)] transition-all">
+                <Button size="lg" className="bg-gradient-to-r from-[#C6FF00] to-[#C6FF00] hover:from-[#DFFF66] hover:to-[#C6FF00] text-black font-bold px-8 py-6 text-lg shadow-[0_0_30px_rgba(198,255,0,0.4)] hover:shadow-[0_0_40px_rgba(198,255,0,0.6)] transition-all">
                   <Rocket className="mr-2 w-5 h-5" />
-                  Get Funded
+                  Choose Your Account
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <div className="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full">
-                <Shield className="w-5 h-5 text-green-400" />
-                <span className="text-green-400 text-sm font-medium">Reward Guaranteed</span>
+              <div className="flex items-center gap-2 px-4 py-2 bg-[#C6FF00]/10 border border-[#C6FF00]/30 rounded-full">
+                <Shield className="w-5 h-5 text-[#C6FF00]" />
+                <span className="text-[#C6FF00] text-sm font-medium">How It Works</span>
               </div>
             </div>
 
@@ -163,19 +163,19 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-8 mb-8">
               <div className="hero-stat">
                 <div className="text-3xl font-black">
-                  <NeonText color="cyan">$25M+</NeonText>
+                  <NeonText color="cyan">4</NeonText>
                 </div>
-                <div className="text-sm text-zinc-500">Paid in rewards</div>
+                <div className="text-sm text-zinc-500">Account sizes</div>
               </div>
               <div className="hero-stat">
-                <div className="text-3xl font-black text-white">$2,500</div>
-                <div className="text-sm text-zinc-500">Average Reward</div>
+                <div className="text-3xl font-black text-white">3</div>
+                <div className="text-sm text-zinc-500">Program routes</div>
               </div>
               <div className="hero-stat">
                 <div className="text-3xl font-black">
-                  <NeonText color="green">24h</NeonText>
+                  <NeonText color="green">80%</NeonText>
                 </div>
-                <div className="text-sm text-zinc-500">Payout Time</div>
+                <div className="text-sm text-zinc-500">Trader share</div>
               </div>
             </div>
 
@@ -184,10 +184,10 @@ const HeroSection = () => {
               <p className="text-zinc-500 text-sm mb-3">Join our community</p>
               <div className="flex gap-3">
                 {[
-                  { icon: LinkedInIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/company/libertyfunded', color: 'hover:bg-blue-700 hover:text-white' },
-                  { icon: FacebookIcon, label: 'Facebook', href: 'https://www.facebook.com/libertyfunded', color: 'hover:bg-blue-600 hover:text-white' },
-                  { icon: InstagramIcon, label: 'Instagram', href: 'https://www.instagram.com/libertyfunded', color: 'hover:bg-pink-500 hover:text-white' },
-                  { icon: XIcon, label: 'X', href: 'https://x.com/libertyfunded', color: 'hover:bg-black hover:text-white hover:border-white' },
+                  { icon: LinkedInIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/company/tradingcapital', color: 'hover:bg-blue-700 hover:text-white' },
+                  { icon: FacebookIcon, label: 'Facebook', href: 'https://www.facebook.com/tradingcapital', color: 'hover:bg-blue-600 hover:text-white' },
+                  { icon: InstagramIcon, label: 'Instagram', href: 'https://www.instagram.com/tradingcapital', color: 'hover:bg-pink-500 hover:text-white' },
+                  { icon: XIcon, label: 'X', href: 'https://x.com/tradingcapital', color: 'hover:bg-[#0D0F12] hover:text-white hover:border-white' },
                 ].map((social, i) => (
                   <a
                     key={i}
@@ -207,8 +207,8 @@ const HeroSection = () => {
             <div className="relative animate-float">
               {/* Glow Ring */}
               <div className="absolute inset-0 -z-10">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-[#22c55e]/20 rounded-full animate-spin" style={{ animationDuration: '20s' }} />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-[#16a34a]/20 rounded-full animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-[#C6FF00]/20 rounded-full animate-spin" style={{ animationDuration: '20s' }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-[#C6FF00]/20 rounded-full animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
               </div>
               
               <img 
@@ -218,18 +218,18 @@ const HeroSection = () => {
               />
               
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 px-3 py-1.5 bg-green-500/90 text-black text-xs font-bold rounded-full animate-bounce">
-                +$12,450
+              <div className="absolute -top-4 -right-4 px-3 py-1.5 bg-[#C6FF00]/90 text-black text-xs font-bold rounded-full animate-bounce">
+                80 / 20 Split
               </div>
-              <div className="absolute top-1/3 -left-8 px-3 py-1.5 bg-[#22c55e]/90 text-white text-xs font-bold rounded-full animate-pulse">
-                Live Trading
+              <div className="absolute top-1/3 -left-8 px-3 py-1.5 bg-[#C6FF00]/90 text-black text-xs font-bold rounded-full animate-pulse">
+                Risk Clarity
               </div>
-              <div className="absolute -bottom-4 right-8 px-3 py-1.5 bg-[#16a34a]/90 text-white text-xs font-bold rounded-full animate-pulse" style={{ animationDelay: '1s' }}>
-                98% Success
+              <div className="absolute -bottom-4 right-8 px-3 py-1.5 bg-[#C6FF00]/90 text-black text-xs font-bold rounded-full animate-pulse" style={{ animationDelay: '1s' }}>
+                14-Day Cycle
               </div>
               
               {/* Glow */}
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#22c55e]/30 to-[#16a34a]/30 blur-[80px] rounded-full scale-75" />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#C6FF00]/30 to-[#C6FF00]/30 blur-[80px] rounded-full scale-75" />
             </div>
           </div>
         </div>
@@ -252,9 +252,9 @@ const ChallengePreview = () => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-24 bg-black relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-[#0D0F12] relative overflow-hidden">
       <AnimatedGrid />
-      <GlowingOrb color="radial-gradient(circle, rgba(34,197,94,0.2), transparent)" className="top-0 right-0 w-[800px] h-[800px]" />
+      <GlowingOrb color="radial-gradient(circle, rgba(198,255,0,0.2), transparent)" className="top-0 right-0 w-[800px] h-[800px]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <ChallengeSelector
@@ -262,12 +262,12 @@ const ChallengePreview = () => {
           showRewardBadge
           title={
             <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-              CHOOSE YOUR CAPITAL.
+              CHOOSE YOUR TRADING CAPITAL.
               <br />
-              <span className="text-[#22c55e] drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]">SELECT YOUR PACKAGE.</span>
+              <span className="text-[#C6FF00] drop-shadow-[0_0_15px_rgba(198,255,0,0.8)]">CHOOSE THE ROUTE THAT FITS YOUR STRATEGY.</span>
             </h2>
           }
-          subtitle="Select the route and capital package that fits your trading style. All programs include clear targets, no moving goalposts, and transparent risk rules."
+          subtitle="Select your program, choose your account size and start trading within clear, transparent parameters."
           showViewAll
           viewAllHref="/challenges"
         />
@@ -289,29 +289,29 @@ const HowItWorks = () => {
   }, [])
 
   const steps = [
-    { icon: Wallet, title: 'Unlock Capital', desc: 'Get Funded with our Capital', color: 'pink', gradient: 'from-[#22c55e] to-[#4ade80]' },
-    { icon: BarChart3, title: 'Trade', desc: 'Trade with your favorite Trading Platform', color: 'purple', gradient: 'from-[#16a34a] to-[#22c55e]' },
-    { icon: TrendingUp, title: 'Earn', desc: 'Withdraw 100% of your profits', color: 'green', gradient: 'from-green-500 to-emerald-500' },
+    { icon: Wallet, title: 'Choose', desc: 'Select the Trading Capital program and account size that fits your objectives.', color: 'pink', gradient: 'from-[#C6FF00] to-[#DFFF66]' },
+    { icon: BarChart3, title: 'Trade', desc: "Trade your strategy while staying within the program's defined risk parameters.", color: 'purple', gradient: 'from-[#C6FF00] to-[#C6FF00]' },
+    { icon: TrendingUp, title: 'Progress', desc: 'Meet your objectives, reach the funded stage and become eligible for payouts.', color: 'green', gradient: 'from-[#C6FF00] to-[#C6FF00]' },
   ]
 
   return (
     <section ref={sectionRef} id="how-it-works" className="py-24 bg-zinc-950 relative overflow-hidden">
       <AnimatedGrid />
-      <GlowingOrb color="radial-gradient(circle, rgba(22,163,74,0.18), transparent)" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]" />
+      <GlowingOrb color="radial-gradient(circle, rgba(198,255,0,0.18), transparent)" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="hiw-header text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
             HOW IT <NeonText color="purple">WORKS</NeonText>
           </h2>
-          <p className="text-zinc-400 text-lg">Trade with our simulated Capital and get paid real Rewards</p>
+          <p className="text-zinc-400 text-lg">From strategy to capital through clear, measurable steps.</p>
         </div>
 
         <div className="hiw-steps grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, i) => (
             <div key={i} className="hiw-step group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#22c55e]/0 via-[#22c55e]/10 to-[#22c55e]/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
-              <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-[#22c55e]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)]">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#C6FF00]/0 via-[#C6FF00]/10 to-[#C6FF00]/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
+              <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-[#C6FF00]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(198,255,0,0.2)]">
                 <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${step.gradient} flex items-center justify-center mb-6 shadow-lg`}>
                   <step.icon className="w-8 h-8 text-white" />
                 </div>
@@ -322,7 +322,7 @@ const HowItWorks = () => {
                 <p className="text-zinc-400">{step.desc}</p>
               </div>
               {i < 2 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-[#22c55e]/50 to-transparent" />
+                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-[#C6FF00]/50 to-transparent" />
               )}
             </div>
           ))}
@@ -333,6 +333,28 @@ const HowItWorks = () => {
 }
 
 // Payout Methods Section
+const TetherLogo = () => (
+  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#26A17B] shadow-[0_0_24px_rgba(38,161,123,0.28)]">
+    <span className="text-3xl font-black text-white">T</span>
+  </div>
+)
+
+const BitcoinLogo = () => (
+  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F7931A] shadow-[0_0_24px_rgba(247,147,26,0.28)]">
+    <span className="text-3xl font-black text-white">₿</span>
+  </div>
+)
+
+const NowPaymentsLogo = () => (
+  <div className="flex h-16 w-32 items-center justify-center rounded-2xl bg-white px-3 shadow-[0_0_28px_rgba(96,165,250,0.2)]">
+    <img
+      src="/nowpayments-logo.png"
+      alt="NOWPayments"
+      className="h-10 w-full object-contain"
+    />
+  </div>
+)
+
 const PayoutMethods = () => {
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -345,14 +367,13 @@ const PayoutMethods = () => {
   }, [])
 
   const methods = [
-    { name: 'Bank Transfer', icon: Landmark, color: 'from-blue-500 to-blue-600', desc: 'Wire & ACH' },
-    { name: 'Crypto', icon: Bitcoin, color: 'from-orange-500 to-amber-500', desc: 'BTC, ETH, USDT' },
-    { name: 'Visa/Master Card', icon: CreditCard, color: 'from-[#22c55e] to-[#16a34a]', desc: 'Instant' },
-    { name: 'Local Transfer', icon: Building2, color: 'from-green-500 to-emerald-500', desc: 'Regional' },
+    { name: 'USDT', mark: <TetherLogo />, desc: 'Tether payments' },
+    { name: 'Bitcoin', mark: <BitcoinLogo />, desc: 'BTC payments' },
+    { name: 'NOWPayments', mark: <NowPaymentsLogo />, desc: 'Crypto checkout' },
   ]
 
   return (
-    <section ref={sectionRef} className="py-24 bg-black relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-[#0D0F12] relative overflow-hidden">
       <AnimatedGrid />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -360,15 +381,15 @@ const PayoutMethods = () => {
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
             FAST & <NeonText color="green">SECURE</NeonText> PAYOUTS
           </h2>
-          <p className="text-zinc-400 text-lg">Withdraw via bank transfer, crypto, and many local payment methods</p>
+          <p className="text-zinc-400 text-lg">Deposit and Withdraw via crypto payment methods</p>
         </div>
 
-        <div className="payout-grid grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="payout-grid grid gap-6 sm:grid-cols-3">
           {methods.map((method, i) => (
             <div key={i} className="payout-card group">
-              <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center hover:border-[#22c55e]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]">
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${method.color} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
-                  <method.icon className="w-8 h-8 text-white" />
+              <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-center hover:border-[#C6FF00]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(198,255,0,0.15)]">
+                <div className="mx-auto mb-4 flex justify-center transition-transform group-hover:scale-110">
+                  {method.mark}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-1">{method.name}</h3>
                 <p className="text-zinc-500 text-sm">{method.desc}</p>
@@ -383,108 +404,32 @@ const PayoutMethods = () => {
 
 // Live Payouts Ticker
 const LivePayouts = () => {
-  const payouts = [
-    { amount: '$9,401.23', name: 'Jose', time: '2m' },
-    { amount: '$10,024.14', name: 'Matej', time: '5m' },
-    { amount: '$40,152.00', name: 'Artur', time: '8m' },
-    { amount: '$10,661.55', name: 'Jhonny', time: '12m' },
-    { amount: '$9,945.49', name: 'Chibane', time: '15m' },
-    { amount: '$13,044.00', name: 'John', time: '18m' },
-    { amount: '$9,521.90', name: 'Shiva', time: '22m' },
-    { amount: '$10,096.41', name: 'Siddhant', time: '25m' },
-    { amount: '$11,335.50', name: 'Florin', time: '28m' },
-    { amount: '$15,902.20', name: 'Tewodros', time: '32m' },
-  ]
-
   return (
     <section className="py-16 bg-zinc-950 overflow-hidden relative">
       <AnimatedGrid />
       
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full mb-4">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-          <span className="text-green-400 text-sm font-medium">LIVE</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C6FF00]/10 border border-[#C6FF00]/30 rounded-full mb-4">
+          <div className="w-2 h-2 bg-[#C6FF00] rounded-full animate-pulse" />
+          <span className="text-[#C6FF00] text-sm font-medium">LIVE</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-black text-white mb-2">
-          RECENT <NeonText color="green">PAYOUTS</NeonText>
+          TRADER <NeonText color="green">PAYOUTS</NeonText>
         </h2>
-        <p className="text-zinc-500">...and thousands more</p>
+        <p className="text-zinc-500">Keep more of what you earn when eligible for payout.</p>
       </div>
 
       <div className="relative">
-        <div className="flex animate-marquee">
-          {[...payouts, ...payouts].map((payout, i) => (
-            <div key={i} className="flex-shrink-0 mx-3">
-              <div className="bg-zinc-900 border border-zinc-800 rounded-xl px-6 py-4 min-w-[180px] hover:border-green-500/30 transition-colors">
-                <div className="text-green-400 font-bold text-lg">{payout.amount}</div>
-                <div className="text-zinc-400 text-sm">{payout.name}</div>
-                <div className="text-zinc-600 text-xs">{payout.time} ago</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// Profit Calculator
-const ProfitCalculator = () => {
-  const accountSizes = [1000, 2500, 5000, 10000, 25000, 50000, 100000]
-  const [sizeIndex, setSizeIndex] = useState(3)
-  const [profitRate, setProfitRate] = useState(8)
-  const accountSize = accountSizes[sizeIndex]
-  const monthlyProfit = Math.round(accountSize * (profitRate / 100))
-
-  return (
-    <section className="py-24 bg-black relative overflow-hidden">
-      <AnimatedGrid />
-      <GlowingOrb color="radial-gradient(circle, rgba(34,197,94,0.2), transparent)" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]" />
-      
-      <div className="relative z-10 max-w-4xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-            CALCULATE YOUR <NeonText color="green">PROFITS</NeonText>
-          </h2>
-          <p className="text-zinc-400 text-lg">How much can you make?</p>
-        </div>
-
-        <div className="bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 rounded-3xl p-8 md:p-12">
-          <div className="grid md:grid-cols-2 gap-12 mb-12">
-            <div>
-              <label className="text-zinc-400 text-sm mb-4 block font-medium">Account Size</label>
-              <div className="text-4xl font-black text-white mb-4">${accountSize.toLocaleString()}</div>
-              <Slider value={[sizeIndex]} onValueChange={(v) => setSizeIndex(v[0])} min={0} max={accountSizes.length - 1} step={1} />
-              <div className="flex justify-between text-zinc-600 text-xs mt-2">
-                <span>$1K</span><span>$100K</span>
-              </div>
-            </div>
-
-            <div>
-              <label className="text-zinc-400 text-sm mb-4 block font-medium">Profit Rate</label>
-              <div className="text-4xl font-black text-[#22c55e] mb-4">{profitRate}%</div>
-              <Slider value={[profitRate]} onValueChange={(v) => setProfitRate(v[0])} min={1} max={20} step={1} />
-              <div className="flex justify-between text-zinc-600 text-xs mt-2">
-                <span>1%</span><span>20%</span>
-              </div>
-            </div>
+        <div className="grid gap-4 px-6 md:grid-cols-2">
+          <div className="mx-auto w-full max-w-sm rounded-xl border border-zinc-800 bg-zinc-900 px-6 py-5 text-center">
+            <div className="text-[#C6FF00] font-black text-3xl">80%</div>
+            <div className="text-zinc-300 font-semibold">Trader Profit Share</div>
+            <p className="mt-2 text-sm text-zinc-500">When eligible for payout, traders keep 80% of approved profits.</p>
           </div>
-
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full mb-4">
-              <Sparkles className="w-4 h-4 text-green-400" />
-              <span className="text-green-400 font-medium">Up to 80% Profit Split</span>
-            </div>
-            <div className="text-5xl md:text-7xl font-black mb-2">
-              <NeonText color="green">${monthlyProfit.toLocaleString()}</NeonText>
-            </div>
-            <div className="text-zinc-500 text-lg">/ Month</div>
-            <Link to="/challenges">
-              <Button className="mt-8 bg-gradient-to-r from-[#22c55e] to-[#4ade80] hover:from-[#4ade80] hover:to-[#86efac] text-white font-bold px-8 py-6 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
-                Start Earning
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
+          <div className="mx-auto w-full max-w-sm rounded-xl border border-zinc-800 bg-zinc-900 px-6 py-5 text-center">
+            <div className="text-[#C6FF00] font-black text-3xl">14 Days</div>
+            <div className="text-zinc-300 font-semibold">Payout Cycle</div>
+            <p className="mt-2 text-sm text-zinc-500">Funded traders become eligible subject to account status and payout rules.</p>
           </div>
         </div>
       </div>
@@ -495,9 +440,9 @@ const ProfitCalculator = () => {
 // Why Choose Us Section
 const WhyChooseUs = () => {
   const features = [
-    '100% refundable fees', 'Up to 80% Profit Split', 'Unlimited Trading Period', 
-    'First Reward on Demand', 'News Trading Allowed', '$5K to $200K packages',
-    'Reward Guarantee', 'Receive in 2 Business Days', 'No Hidden Rules', 'Liberty Points'
+    'Clear rules', 'Transparent targets', 'Flexible trading conditions',
+    'Structured progression', 'News trading allowed', 'Overnight holding allowed',
+    'Weekend holding allowed', 'Legitimate EAs allowed', '14-day payout cycle', '80 / 20 split'
   ]
 
   return (
@@ -507,87 +452,25 @@ const WhyChooseUs = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-            WHY TRADERS <NeonText color="pink">LOVE</NeonText> LIBERTY
+            WHY <NeonText color="pink">TRADING CAPITAL</NeonText>
           </h2>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {features.map((feature, i) => (
-            <div key={i} className="group flex items-center gap-3 bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 hover:border-[#22c55e]/50 hover:shadow-[0_0_20px_rgba(34,197,94,0.1)] transition-all">
-              <Check className="w-5 h-5 text-[#22c55e] flex-shrink-0" />
+            <div key={i} className="group flex items-center gap-3 bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 hover:border-[#C6FF00]/50 hover:shadow-[0_0_20px_rgba(198,255,0,0.1)] transition-all">
+              <Check className="w-5 h-5 text-[#C6FF00] flex-shrink-0" />
               <span className="text-zinc-300 text-sm">{feature}</span>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-zinc-500 text-sm mb-2">You're not liable for any losses.</p>
-          <Link to="/faq" className="text-[#22c55e] hover:text-[#4ade80] text-sm inline-flex items-center gap-1">
+          <p className="text-zinc-500 text-sm mb-2">Built for disciplined traders.</p>
+          <Link to="/faq" className="text-[#C6FF00] hover:text-[#DFFF66] text-sm inline-flex items-center gap-1">
             Check FAQ for details
             <ChevronRight className="w-4 h-4" />
           </Link>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// Testimonials Section
-const Testimonials = () => {
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.testimonial-card', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' }})
-    }, sectionRef)
-    return () => ctx.revert()
-  }, [])
-
-  const testimonials = [
-    { quote: "One of the best firms. I'm liking their firm and their challenges! I received my funded account in 3 days after passing it.", author: 'Marie', rating: 5, role: 'Funded Trader' },
-    { quote: "A game changer for traders. This is by far the best experience I've had with a prop firm. The platform is stable, support is always available.", author: 'Aadit', rating: 5, role: 'Pro Trader' },
-    { quote: "The best prop firm to trade for the long term. The scaling program is mouth-watering. Best scaling program I saw so far.", author: 'Aniket', rating: 5, role: 'Elite Trader' },
-  ]
-
-  return (
-    <section ref={sectionRef} className="py-24 bg-black relative overflow-hidden">
-      <AnimatedGrid />
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-            LOVED. <NeonText color="purple">TRUSTED.</NeonText> UNITED.
-          </h2>
-          <p className="text-zinc-400 text-lg">Join the 50+ Thousand Traders who trust Liberty</p>
-          <div className="flex items-center justify-center gap-2 mt-4">
-            <Star className="w-6 h-6 text-amber-400 fill-amber-400" />
-            <span className="text-white font-bold text-xl">4.9</span>
-            <span className="text-zinc-500">Stars from 5k verified Reviews</span>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <Card key={i} className="testimonial-card bg-zinc-900 border-zinc-800 hover:border-[#22c55e]/30 transition-all hover:-translate-y-1">
-              <CardContent className="p-6">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, j) => (
-                    <Star key={j} className="w-5 h-5 text-amber-400 fill-amber-400" />
-                  ))}
-                </div>
-                <p className="text-zinc-300 mb-6 text-lg leading-relaxed">"{t.quote}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#22c55e] to-[#16a34a] flex items-center justify-center text-white font-bold">
-                    {t.author[0]}
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold">{t.author}</p>
-                    <p className="text-zinc-500 text-sm">{t.role}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
         </div>
       </div>
     </section>
@@ -632,14 +515,14 @@ const JoinCommunity = () => {
   }, [])
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: LinkedInIcon, href: 'https://www.linkedin.com/company/libertyfunded', color: 'hover:bg-blue-700 hover:text-white' },
-    { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/libertyfunded', color: 'hover:bg-blue-600 hover:text-white' },
-    { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/libertyfunded', color: 'hover:bg-pink-500 hover:text-white' },
-    { name: 'Twitter', icon: XIcon, href: 'https://x.com/libertyfunded', color: 'hover:bg-black hover:text-white hover:border-white' },
+    { name: 'LinkedIn', icon: LinkedInIcon, href: 'https://www.linkedin.com/company/tradingcapital', color: 'hover:bg-blue-700 hover:text-white' },
+    { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/tradingcapital', color: 'hover:bg-blue-600 hover:text-white' },
+    { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/tradingcapital', color: 'hover:bg-pink-500 hover:text-white' },
+    { name: 'Twitter', icon: XIcon, href: 'https://x.com/tradingcapital', color: 'hover:bg-[#0D0F12] hover:text-white hover:border-white' },
   ]
 
   return (
-    <section ref={sectionRef} className="py-24 bg-black relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-[#0D0F12] relative overflow-hidden">
       <AnimatedGrid />
       
       <div className="relative z-10 max-w-4xl mx-auto px-6">
@@ -648,7 +531,7 @@ const JoinCommunity = () => {
             JOIN OUR <NeonText color="pink">COMMUNITY</NeonText>
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Connect with thousands of traders worldwide. Get updates, share strategies, and be part of the Liberty family.
+            Get updates, product news and platform announcements from Trading Capital.
           </p>
         </div>
 
@@ -667,9 +550,9 @@ const JoinCommunity = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22c55e]/10 border border-[#22c55e]/30 rounded-full">
-            <Users className="w-4 h-4 text-[#22c55e]" />
-            <span className="text-[#22c55e] text-sm font-medium">50,000+ Traders Connected</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C6FF00]/10 border border-[#C6FF00]/30 rounded-full">
+            <Users className="w-4 h-4 text-[#C6FF00]" />
+            <span className="text-[#C6FF00] text-sm font-medium">Structured funding challenges for disciplined traders worldwide.</span>
           </div>
         </div>
       </div>
@@ -680,10 +563,10 @@ const JoinCommunity = () => {
 // FAQ Preview Section
 const FAQPreview = () => {
   const faqs = [
-    { q: 'What is Liberty Funded?', a: 'Liberty Funded is a proprietary trading firm that provides funded accounts to traders who pass our evaluation challenges.' },
-    { q: 'How do the challenges work?', a: 'Traders choose a challenge type and account size, pay the one-time fee, and trade according to our rules.' },
-    { q: 'What is the profit split?', a: 'The 2-Step, 1-Step, and Instant routes offer profit splits up to 80%.' },
-    { q: 'How quickly can I get paid?', a: 'We process payouts within 24-48 hours of your request.' },
+    { q: 'What is Trading Capital?', a: 'Trading Capital is a proprietary trading evaluation firm that assesses performance, discipline, and risk management through structured funding challenges in a simulated trading environment.' },
+    { q: 'Which program should I choose?', a: 'Choose 1-Step for the fastest evaluation route, 2-Step for a lower entry price and wider risk parameters, or Instant Funding to start without an evaluation phase.' },
+    { q: 'What profit share do funded traders receive?', a: "Trading Capital's standard funded profit split is 80% to the trader and 20% to Trading Capital." },
+    { q: 'How often can I receive payouts?', a: 'Eligible funded traders operate on a 14-day payout cycle, subject to the applicable payout rules and account status.' },
   ]
 
   return (
@@ -700,9 +583,9 @@ const FAQPreview = () => {
 
         <div className="space-y-4 mb-10">
           {faqs.map((faq, i) => (
-            <div key={i} className="bg-zinc-900 border border-zinc-800 rounded-xl px-6 py-5 hover:border-[#22c55e]/30 transition-colors">
+            <div key={i} className="bg-zinc-900 border border-zinc-800 rounded-xl px-6 py-5 hover:border-[#C6FF00]/30 transition-colors">
               <h3 className="text-white font-medium mb-2 flex items-center gap-2">
-                <Award className="w-5 h-5 text-[#22c55e]" />
+                <Award className="w-5 h-5 text-[#C6FF00]" />
                 {faq.q}
               </h3>
               <p className="text-zinc-400 text-sm">{faq.a}</p>
@@ -712,7 +595,7 @@ const FAQPreview = () => {
 
         <div className="text-center">
           <Link to="/faq">
-            <Button variant="outline" className="border-zinc-700 text-white hover:bg-zinc-800 hover:border-[#22c55e]/50 px-8 py-5">
+            <Button variant="outline" className="border-zinc-700 text-white hover:bg-zinc-800 hover:border-[#C6FF00]/50 px-8 py-5">
               View All FAQs
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
@@ -732,9 +615,8 @@ const Home = () => {
       <HowItWorks />
       <PayoutMethods />
       <LivePayouts />
-      <ProfitCalculator />
+      
       <WhyChooseUs />
-      <Testimonials />
       <JoinCommunity />
       <FAQPreview />
     </>

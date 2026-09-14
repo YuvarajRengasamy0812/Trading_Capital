@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mail, MessageCircle, Clock, MapPin, Send, Check } from 'lucide-react'
+import { Mail, Clock, MapPin, Send, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -45,19 +45,11 @@ const Contact = () => {
 
   const contactMethods = [
     {
-      icon: MessageCircle,
-      title: 'Live Chat',
-      desc: 'Get instant help from our support team',
-      action: 'Start Chat',
-      detail: 'Available 24/7',
-      color: 'cyan'
-    },
-    {
       icon: Mail,
       title: 'Email Support',
       desc: 'Send us an email for detailed inquiries',
-      action: 'support@libertymarkets.org',
-      href: 'mailto:support@libertymarkets.org',
+      action: 'support@tradingcapital.com',
+      href: 'mailto:support@tradingcapital.com',
       detail: 'Response in 2 hours',
       color: 'purple'
     },
@@ -72,14 +64,14 @@ const Contact = () => {
   ]
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: LinkedInIcon, href: 'https://www.linkedin.com/company/libertyfunded', color: 'hover:bg-blue-700 hover:text-white' },
-    { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/libertyfunded', color: 'hover:bg-blue-600 hover:text-white' },
-    { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/libertyfunded', color: 'hover:bg-pink-500 hover:text-white' },
-    { name: 'X', icon: XIcon, href: 'https://x.com/libertyfunded', color: 'hover:bg-black hover:text-white hover:border-white' },
+    { name: 'LinkedIn', icon: LinkedInIcon, href: 'https://www.linkedin.com/company/tradingcapital', color: 'hover:bg-blue-700 hover:text-white' },
+    { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/tradingcapital', color: 'hover:bg-blue-600 hover:text-white' },
+    { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/tradingcapital', color: 'hover:bg-pink-500 hover:text-white' },
+    { name: 'X', icon: XIcon, href: 'https://x.com/tradingcapital', color: 'hover:bg-[#0D0F12] hover:text-white hover:border-white' },
   ]
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[#0D0F12]">
       {/* Hero with Image */}
       <section className="relative py-24 px-6 overflow-hidden">
         {/* Background Image */}
@@ -89,12 +81,12 @@ const Contact = () => {
             alt="Contact Support" 
             className="w-full h-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F12]/40 via-black/60 to-[#0D0F12]" />
         </div>
         
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6">
-            GET IN <span className="text-[#22c55e]">TOUCH</span>
+            GET IN <span className="text-[#C6FF00]">TOUCH</span>
           </h1>
           <p className="text-xl text-zinc-400">
             Have a question? We are here to help 24/7
@@ -105,24 +97,24 @@ const Contact = () => {
       {/* Contact Methods */}
       <section className="py-12 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {contactMethods.map((method, i) => (
-              <Card key={i} className="bg-zinc-900 border-zinc-800 hover:border-[#22c55e]/30 transition-all">
+              <Card key={i} className="bg-zinc-900 border-zinc-800 hover:border-[#C6FF00]/30 transition-all">
                 <CardContent className="p-6 text-center">
-                  <div className={`w-14 h-14 rounded-xl bg-[#22c55e]/20 flex items-center justify-center mx-auto mb-4`}>
-                    <method.icon className={`w-7 h-7 text-[#22c55e]`} />
+                  <div className={`w-14 h-14 rounded-xl bg-[#C6FF00]/20 flex items-center justify-center mx-auto mb-4`}>
+                    <method.icon className={`w-7 h-7 text-[#C6FF00]`} />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">{method.title}</h3>
                   <p className="text-zinc-500 text-sm mb-4">{method.desc}</p>
                   {method.href ? (
                     <a
                       href={method.href}
-                      className="text-[#22c55e] font-medium hover:text-[#4ade80] transition-colors"
+                      className="text-[#C6FF00] font-medium hover:text-[#DFFF66] transition-colors"
                     >
                       {method.action}
                     </a>
                   ) : (
-                    <div className="text-[#22c55e] font-medium">{method.action}</div>
+                    <div className="text-[#C6FF00] font-medium">{method.action}</div>
                   )}
                   <div className="text-zinc-600 text-sm mt-1">{method.detail}</div>
                 </CardContent>
@@ -161,7 +153,7 @@ const Contact = () => {
             alt="Trading Dashboard" 
             className="w-full h-full object-cover opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/98 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F12] via-black/98 to-[#0D0F12]" />
         </div>
         
         <div className="relative z-10 max-w-4xl mx-auto">
@@ -171,9 +163,9 @@ const Contact = () => {
               <h2 className="text-2xl font-bold text-white mb-6">Send us a Message</h2>
               
               {submitted ? (
-                <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-8 text-center">
-                  <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-4">
-                    <Check className="w-8 h-8 text-green-400" />
+                <div className="bg-[#C6FF00]/10 border border-[#C6FF00]/30 rounded-xl p-8 text-center">
+                  <div className="w-16 h-16 rounded-full bg-[#C6FF00]/20 flex items-center justify-center mx-auto mb-4">
+                    <Check className="w-8 h-8 text-[#C6FF00]" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
                   <p className="text-zinc-400">We will get back to you within 2 hours.</p>
@@ -188,7 +180,7 @@ const Contact = () => {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#22c55e]/50"
+                        className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#C6FF00]/50"
                         placeholder="John Doe"
                       />
                     </div>
@@ -199,7 +191,7 @@ const Contact = () => {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#22c55e]/50"
+                        className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#C6FF00]/50"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -211,7 +203,7 @@ const Contact = () => {
                       required
                       value={formData.subject}
                       onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                      className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#22c55e]/50"
+                      className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#C6FF00]/50"
                     >
                       <option value="">Select a subject</option>
                       <option value="general">General Inquiry</option>
@@ -230,12 +222,12 @@ const Contact = () => {
                       rows={5}
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#22c55e]/50 resize-none"
+                      className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-[#C6FF00]/50 resize-none"
                       placeholder="How can we help you?"
                     />
                   </div>
                   
-                  <Button type="submit" className="w-full bg-[#22c55e] hover:bg-[#4ade80] text-white font-bold py-6">
+                  <Button type="submit" className="w-full bg-[#C6FF00] hover:bg-[#DFFF66] text-black font-bold py-6">
                     <Send className="mr-2 w-5 h-5" />
                     Send Message
                   </Button>
@@ -250,30 +242,30 @@ const Contact = () => {
               <div className="space-y-6">
                 <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <Mail className="w-5 h-5 text-[#22c55e]" />
+                    <Mail className="w-5 h-5 text-[#C6FF00]" />
                     <span className="text-white font-medium">Email</span>
                   </div>
                   <p className="text-zinc-400 text-sm">
                     <a
-                      href="mailto:support@libertymarkets.org"
-                      className="hover:text-[#22c55e] transition-colors"
+                      href="mailto:support@tradingcapital.com"
+                      className="hover:text-[#C6FF00] transition-colors"
                     >
-                      support@libertymarkets.org
+                      support@tradingcapital.com
                     </a>
                   </p>
                   <p className="text-zinc-400 text-sm">
                     <a
-                      href="mailto:affiliates@libertyfunded.com"
-                      className="hover:text-[#22c55e] transition-colors"
+                      href="mailto:affiliates@tradingcapital."
+                      className="hover:text-[#C6FF00] transition-colors"
                     >
-                      affiliates@libertyfunded.com
+                      affiliates@tradingcapital.
                     </a>
                   </p>
                 </div>
 
                 <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <Clock className="w-5 h-5 text-[#22c55e]" />
+                    <Clock className="w-5 h-5 text-[#C6FF00]" />
                     <span className="text-white font-medium">Response Time</span>
                   </div>
                   <p className="text-zinc-400 text-sm">Average: Under 2 hours</p>
@@ -282,7 +274,7 @@ const Contact = () => {
 
                 <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <MapPin className="w-5 h-5 text-[#22c55e]" />
+                    <MapPin className="w-5 h-5 text-[#C6FF00]" />
                     <span className="text-white font-medium">Location</span>
                   </div>
                   <p className="text-zinc-400 text-sm">Serving traders worldwide</p>

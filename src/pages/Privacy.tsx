@@ -1,9 +1,9 @@
 const Privacy = () => {
   return (
-    <div className="min-h-screen bg-black py-24 px-6">
+    <div className="min-h-screen bg-[#0D0F12] py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-black text-white mb-8">
-          Privacy <span className="text-[#22c55e]">Policy</span>
+          Privacy <span className="text-[#C6FF00]">Policy</span>
         </h1>
         
         <div className="prose prose-invert max-w-none">
@@ -15,7 +15,7 @@ const Privacy = () => {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">1. Introduction</h2>
               <p className="text-zinc-400">
-                Liberty Funded ("we", "our", or "us") is committed to protecting your privacy. 
+                Trading Capital ("we", "our", or "us") is committed to protecting your privacy. 
                 This Privacy Policy explains how we collect, use, disclose, and safeguard your information 
                 when you use our website and services.
               </p>
@@ -120,8 +120,8 @@ const Privacy = () => {
               <p className="text-zinc-400">
                 If you have any questions about this Privacy Policy, please contact us at:
                 <br />
-                <a href="mailto:privacy@libertyfunded.com" className="text-[#22c55e] hover:text-[#4ade80]">
-                  privacy@libertyfunded.com
+                <a href="mailto:privacy@tradingcapital." className="text-[#C6FF00] hover:text-[#DFFF66]">
+                  privacy@tradingcapital.
                 </a>
               </p>
             </section>

@@ -1,9 +1,9 @@
 const Terms = () => {
   return (
-    <div className="min-h-screen bg-black py-24 px-6">
+    <div className="min-h-screen bg-[#0D0F12] py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-black text-white mb-8">
-          Terms & <span className="text-[#22c55e]">Conditions</span>
+          Terms & <span className="text-[#C6FF00]">Conditions</span>
         </h1>
         
         <div className="prose prose-invert max-w-none">
@@ -15,7 +15,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">1. Introduction</h2>
               <p className="text-zinc-400">
-                Welcome to Liberty Funded. By accessing or using our services, you agree to be bound by these Terms and Conditions. 
+                Welcome to Trading Capital. By accessing or using our services, you agree to be bound by these Terms and Conditions. 
                 Please read them carefully before using our platform.
               </p>
             </section>
@@ -23,7 +23,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">2. Services</h2>
               <p className="text-zinc-400">
-                Liberty Funded provides proprietary trading evaluation services. We offer simulated trading challenges 
+                Trading Capital provides proprietary trading evaluation services. We offer simulated trading challenges 
                 that allow traders to demonstrate their skills and potentially receive funded trading accounts.
               </p>
             </section>
@@ -66,7 +66,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">7. Intellectual Property</h2>
               <p className="text-zinc-400">
-                All content, trademarks, and intellectual property on our platform are owned by Liberty Funded. 
+                All content, trademarks, and intellectual property on our platform are owned by Trading Capital. 
                 You may not use our intellectual property without prior written consent.
               </p>
             </section>
@@ -74,7 +74,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">8. Limitation of Liability</h2>
               <p className="text-zinc-400">
-                Liberty Funded is not liable for any losses incurred during trading activities. 
+                Trading Capital is not liable for any losses incurred during trading activities. 
                 Trading involves significant risk, and you should only trade with capital you can afford to lose.
               </p>
             </section>
@@ -90,7 +90,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">10. Contact</h2>
               <p className="text-zinc-400">
-                For questions about these terms, please contact us at support@libertymarkets.org
+                For questions about these terms, please contact us at support@tradingcapital.com
               </p>
             </section>
           </div>

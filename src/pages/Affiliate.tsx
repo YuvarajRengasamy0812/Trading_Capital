@@ -11,13 +11,13 @@ const Affiliate = () => {
     { name: 'Bronze', min: 1, max: 25, referrals: '1-25', rate: 0.1, color: 'from-amber-600 to-amber-700', icon: Users },
     { name: 'Silver', min: 26, max: 50, referrals: '26-50', rate: 0.15, color: 'from-slate-400 to-slate-500', icon: TrendingUp },
     { name: 'Gold', min: 51, max: 99, referrals: '51-99', rate: 0.2, color: 'from-yellow-400 to-yellow-500', icon: DollarSign },
-    { name: 'Platinum', min: 100, max: Infinity, referrals: '100+', rate: 0.25, color: 'from-[#22c55e] to-[#16a34a]', icon: Gift },
+    { name: 'Platinum', min: 100, max: Infinity, referrals: '100+', rate: 0.25, color: 'from-[#C6FF00] to-[#C6FF00]', icon: Gift },
   ]
 
   const benefits = [
     { icon: DollarSign, title: 'Lifetime Commissions', desc: 'Earn on every purchase your referrals make, forever' },
     { icon: BarChart3, title: 'Real-Time Dashboard', desc: 'Track your earnings, clicks, and conversions in real-time' },
-    { icon: Megaphone, title: 'Marketing Materials', desc: 'Access banners, images, and content to promote Liberty' },
+    { icon: Megaphone, title: 'Marketing Materials', desc: 'Access banners, images, and content to promote Trading Capital' },
     { icon: Headphones, title: 'Dedicated Support', desc: 'Get priority support from our affiliate team' },
     { icon: Gift, title: 'Bonus Rewards', desc: 'Unlock exclusive bonuses at each tier level' },
     { icon: TrendingUp, title: 'No Cap on Earnings', desc: 'The more you refer, the more you earn - unlimited potential' },
@@ -28,7 +28,7 @@ const Affiliate = () => {
   const estimatedEarnings = referrals * earningsPerReferral
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[#0D0F12]">
       {/* Hero with Image */}
       <section className="relative py-24 px-6 overflow-hidden">
         {/* Background Image */}
@@ -38,31 +38,31 @@ const Affiliate = () => {
             alt="Partnership" 
             className="w-full h-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F12]/40 via-black/60 to-[#0D0F12]" />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22c55e]/10 border border-[#22c55e]/30 rounded-full mb-6">
-                <Users className="w-4 h-4 text-[#22c55e]" />
-                <span className="text-[#22c55e] font-medium">Partner Program</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C6FF00]/10 border border-[#C6FF00]/30 rounded-full mb-6">
+                <Users className="w-4 h-4 text-[#C6FF00]" />
+                <span className="text-[#C6FF00] font-medium">Partner Program</span>
               </div>
               
               <h1 className="text-4xl md:text-6xl font-black text-white mb-6">
-                EARN UP TO <span className="text-[#22c55e]">25%</span>
+                EARN UP TO <span className="text-[#C6FF00]">25%</span>
                 <br />
                 COMMISSION
               </h1>
               
               <p className="text-xl text-zinc-400 mb-8">
-                Join Liberty Funded's affiliate program and earn lifetime commissions on every trader you refer. 
+                Join Trading Capital's affiliate program and earn lifetime commissions on every trader you refer. 
                 The more you refer, the higher your commission rate.
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a href="https://secure.libertymarkets.org/prop/register">
-                  <Button size="lg" className="bg-[#22c55e] hover:bg-[#4ade80] text-white font-bold px-8">
+                <a href="/contact">
+                  <Button size="lg" className="bg-[#C6FF00] hover:bg-[#DFFF66] text-black font-bold px-8">
                     Become an Affiliate
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
@@ -89,11 +89,11 @@ const Affiliate = () => {
                   </div>
                 </div>
 
-                <div className="bg-[#22c55e]/10 border border-[#22c55e]/30 rounded-xl p-6 text-center">
+                <div className="bg-[#C6FF00]/10 border border-[#C6FF00]/30 rounded-xl p-6 text-center">
                   <div className="text-zinc-400 text-sm mb-2">Estimated Monthly Earnings</div>
-                  <div className="text-4xl md:text-5xl font-black text-[#22c55e]">${estimatedEarnings.toLocaleString()}</div>
+                  <div className="text-4xl md:text-5xl font-black text-[#C6FF00]">${estimatedEarnings.toLocaleString()}</div>
                   <div className="text-zinc-500 text-sm mt-2">
-                    {currentTier.name} tier • ${earningsPerReferral} per referral at {currentTier.rate * 100}% commission
+                    {currentTier.name} tier â€¢ ${earningsPerReferral} per referral at {currentTier.rate * 100}% commission
                   </div>
                 </div>
               </CardContent>
@@ -107,14 +107,14 @@ const Affiliate = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
-              Commission <span className="text-[#22c55e]">Tiers</span>
+              Commission <span className="text-[#C6FF00]">Tiers</span>
             </h2>
             <p className="text-zinc-400 text-lg">Climb the ranks and increase your earnings</p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {tiers.map((tier, i) => (
-              <Card key={i} className="bg-zinc-900 border-zinc-800 overflow-hidden group hover:border-[#22c55e]/50 transition-all">
+              <Card key={i} className="bg-zinc-900 border-zinc-800 overflow-hidden group hover:border-[#C6FF00]/50 transition-all">
                 <div className={`h-2 bg-gradient-to-r ${tier.color}`} />
                 <CardContent className="p-6">
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${tier.color} flex items-center justify-center mb-4`}>
@@ -140,21 +140,21 @@ const Affiliate = () => {
             alt="Wealth Visualization" 
             className="w-full h-full object-cover opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F12]/60 via-black/80 to-[#0D0F12]" />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
-              Why Partner With <span className="text-[#22c55e]">Liberty</span>
+              Why Partner With <span className="text-[#C6FF00]">Trading Capital</span>
             </h2>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, i) => (
-              <div key={i} className="flex items-start gap-4 bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 hover:border-[#22c55e]/30 transition-all">
-                <div className="w-12 h-12 rounded-lg bg-[#22c55e]/20 flex items-center justify-center flex-shrink-0">
-                  <benefit.icon className="w-6 h-6 text-[#22c55e]" />
+              <div key={i} className="flex items-start gap-4 bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 hover:border-[#C6FF00]/30 transition-all">
+                <div className="w-12 h-12 rounded-lg bg-[#C6FF00]/20 flex items-center justify-center flex-shrink-0">
+                  <benefit.icon className="w-6 h-6 text-[#C6FF00]" />
                 </div>
                 <div>
                   <h3 className="text-white font-semibold mb-1">{benefit.title}</h3>
@@ -181,7 +181,7 @@ const Affiliate = () => {
         <div className="relative z-10 max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
-              How It <span className="text-[#22c55e]">Works</span>
+              How It <span className="text-[#C6FF00]">Works</span>
             </h2>
           </div>
 
@@ -192,7 +192,7 @@ const Affiliate = () => {
               { step: '03', title: 'Earn Commissions', desc: 'Get paid for every trader who signs up and purchases' },
             ].map((item, i) => (
               <div key={i} className="text-center">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#16a34a] to-[#22c55e] flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#16a34a]/20">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C6FF00] to-[#C6FF00] flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#C6FF00]/20">
                   <span className="text-2xl font-black text-white">{item.step}</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
@@ -212,22 +212,22 @@ const Affiliate = () => {
             alt="Achievement Trophy" 
             className="w-full h-full object-cover opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F12]/60 via-black/80 to-[#0D0F12]" />
         </div>
         
         <div className="relative z-10 max-w-4xl mx-auto">
-          <Card className="bg-zinc-900/80 backdrop-blur-sm border-[#22c55e]/30">
+          <Card className="bg-zinc-900/80 backdrop-blur-sm border-[#C6FF00]/30">
             <CardContent className="p-12 text-center">
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
                 Ready to Start Earning?
               </h2>
               <p className="text-zinc-300 text-lg mb-8">
-                Join thousands of affiliates already earning with Liberty Funded
+                Register your interest in the Trading Capital affiliate program
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <a href="https://secure.libertymarkets.org/prop/register">
-                  <Button size="lg" className="bg-[#22c55e] hover:bg-[#4ade80] text-white font-bold px-8">
+                <a href="/contact">
+                  <Button size="lg" className="bg-[#C6FF00] hover:bg-[#DFFF66] text-black font-bold px-8">
                     Become an Affiliate
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
@@ -235,8 +235,8 @@ const Affiliate = () => {
               </div>
 
               <div className="flex items-center justify-center gap-2 text-zinc-400">
-                <Check className="w-4 h-4 text-green-400" />
-                <span className="text-sm">Free to join • Instant approval • Weekly payouts</span>
+                <Check className="w-4 h-4 text-[#C6FF00]" />
+                <span className="text-sm">Free to join â€¢ Instant approval â€¢ Weekly payouts</span>
               </div>
             </CardContent>
           </Card>
@@ -250,10 +250,10 @@ const Affiliate = () => {
           
           <div className="space-y-4">
             {[
-              { q: 'How much can I earn?', a: 'There is no cap on earnings. The more traders you refer, the more you earn. Top affiliates make over $50,000 per month.' },
+              { q: 'How much can I earn?', a: 'Affiliate earnings depend on approved commission terms, referral volume and qualifying purchases. Final terms should be confirmed before promotion.' },
               { q: 'When do I get paid?', a: 'Affiliate commissions are paid weekly, every Monday. You can withdraw via bank transfer, crypto, or Visa/Master Card.' },
               { q: 'How long do cookies last?', a: 'Our tracking cookies last for 90 days. If someone clicks your link and purchases within 90 days, you get credited.' },
-              { q: 'Can I promote on social media?', a: 'Yes! You can promote Liberty Funded on any platform including YouTube, Instagram, Twitter, TikTok, and trading forums.' },
+              { q: 'Can I promote on social media?', a: 'Yes! You can promote Trading Capital on any platform including YouTube, Instagram, Twitter, TikTok, and trading forums.' },
             ].map((faq, i) => (
               <div key={i} className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
                 <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
