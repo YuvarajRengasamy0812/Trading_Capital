@@ -14,7 +14,7 @@ const Challenges = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/trading-floor.jpg" 
+            src="/tc-internal-hero.png" 
             alt="Trading Floor" 
             className="w-full h-full object-cover opacity-70"
           />
@@ -27,9 +27,12 @@ const Challenges = () => {
             <span className="text-[#C6FF00] text-sm font-medium">Your Strategy. Our Capital.</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6">
-            CHOOSE YOUR TRADING CAPITAL
+            BECOME A
             <br />
-            <NeonText>PROGRAM ROUTE</NeonText>
+            <span className="mt-4 inline-flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <img src="/tc-icon.png" alt="TC" className="h-16 w-16 rounded-2xl object-contain sm:h-20 sm:w-20 md:h-24 md:w-24" />
+              <NeonText>TRADER</NeonText>
+            </span>
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
             Select your program, choose your account size and trade within clear, transparent parameters.
@@ -72,7 +75,7 @@ const Challenges = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/challenge-badges.jpg" 
+            src="/tc-architecture-green.png" 
             alt="Challenge Badges" 
             className="w-full h-full object-cover opacity-50"
           />
@@ -112,7 +115,7 @@ const Challenges = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/trading-dashboard.jpg" 
+            src="/tc-data-wall.png" 
             alt="Trading Dashboard" 
             className="w-full h-full object-cover opacity-50"
           />

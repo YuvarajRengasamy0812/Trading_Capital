@@ -87,21 +87,25 @@ const HeroSection = () => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen bg-[#0D0F12] overflow-hidden pt-10">
+    <section ref={sectionRef} className="relative min-h-[calc(100vh-7.5rem)] bg-[#0D0F12] overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src="/tc-hero-premium.png"
+          alt="Premium Trading Capital financial technology environment"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0D0F12]/95 via-[#0D0F12]/70 to-[#0D0F12]/45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F12]/25 via-transparent to-[#0D0F12]" />
+      </div>
       <AnimatedGrid />
       <FloatingParticles />
-      
-      {/* Background Glows */}
-      <GlowingOrb color="radial-gradient(circle, rgba(198,255,0,0.35), transparent)" className="hero-glow top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[800px]" />
-      <GlowingOrb color="radial-gradient(circle, rgba(198,255,0,0.28), transparent)" className="top-1/3 right-0 w-[600px] h-[600px]" />
-      <GlowingOrb color="radial-gradient(circle, rgba(198,255,0,0.2), transparent)" className="bottom-0 left-0 w-[500px] h-[500px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-4 lg:py-5">
+        <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-8 items-center">
           {/* Left Content */}
           <div>
             {/* Trust Badges */}
-            <div className="hero-badge flex flex-wrap items-center gap-3 mb-8">
+            <div className="hero-badge flex flex-wrap items-center gap-3 mb-5">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-zinc-900/80 border border-zinc-800 rounded-full">
                 <Users className="w-4 h-4 text-amber-400" />
                 <span className="text-zinc-300 text-sm">Structured funding challenges</span>
@@ -113,23 +117,22 @@ const HeroSection = () => {
             </div>
 
             {/* Title with Neon Effect */}
-            <div className="mb-8">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tighter">
-                <div className="hero-title-line text-white mb-2">YOUR</div>
-                <div className="hero-title-line mb-2">
-                  <NeonText color="cyan" className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl">STRATEGY.</NeonText>
+            <div className="mb-5">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black uppercase tracking-tighter leading-[0.94]">
+                <div className="hero-title-line text-white mb-1">
+                  YOUR <NeonText color="cyan">STRATEGY.</NeonText>
                 </div>
                 <div className="hero-title-line">
-                  <NeonText color="purple" className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl">OUR CAPITAL.</NeonText>
+                  <NeonText color="purple">OUR CAPITAL.</NeonText>
                 </div>
               </h1>
-              <p className="hero-subtitle mt-6 max-w-2xl text-lg text-zinc-300">
+              <p className="hero-subtitle mt-4 max-w-2xl text-base text-zinc-300 lg:text-lg">
                 Prove your trading ability. Access greater capital. Build your path to scale.
               </p>
             </div>
 
             {/* Animated Subtitle */}
-            <div className="hero-subtitle flex flex-wrap items-center gap-4 mb-8">
+            <div className="hero-subtitle flex flex-wrap items-center gap-3 mb-5">
               {[
                 { icon: BarChart3, text: 'Clear risk parameters', bg: 'bg-[#C6FF00]/20', iconClass: 'text-[#C6FF00]' },
                 { icon: Wallet, text: '80 / 20 profit split', bg: 'bg-[#C6FF00]/20', iconClass: 'text-[#C6FF00]' },
@@ -145,9 +148,9 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="hero-cta flex flex-wrap items-center gap-4 mb-12">
+            <div className="hero-cta flex flex-wrap items-center gap-4 mb-6">
               <Link to="/challenges">
-                <Button size="lg" className="bg-gradient-to-r from-[#C6FF00] to-[#C6FF00] hover:from-[#DFFF66] hover:to-[#C6FF00] text-black font-bold px-8 py-6 text-lg shadow-[0_0_30px_rgba(198,255,0,0.4)] hover:shadow-[0_0_40px_rgba(198,255,0,0.6)] transition-all">
+                <Button size="lg" className="bg-gradient-to-r from-[#C6FF00] to-[#C6FF00] hover:from-[#DFFF66] hover:to-[#C6FF00] text-black font-bold px-7 py-5 text-base shadow-[0_0_30px_rgba(198,255,0,0.4)] hover:shadow-[0_0_40px_rgba(198,255,0,0.6)] transition-all">
                   <Rocket className="mr-2 w-5 h-5" />
                   Choose Your Account
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -160,7 +163,7 @@ const HeroSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="flex flex-wrap gap-8 mb-8">
+            <div className="flex flex-wrap gap-6">
               <div className="hero-stat">
                 <div className="text-3xl font-black">
                   <NeonText color="cyan">4</NeonText>
@@ -180,14 +183,14 @@ const HeroSection = () => {
             </div>
 
             {/* Social Media */}
-            <div className="hero-social">
+            <div className="hero-social hidden">
               <p className="text-zinc-500 text-sm mb-3">Join our community</p>
               <div className="flex gap-3">
                 {[
-                  { icon: LinkedInIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/company/tradingcapital', color: 'hover:bg-blue-700 hover:text-white' },
-                  { icon: FacebookIcon, label: 'Facebook', href: 'https://www.facebook.com/tradingcapital', color: 'hover:bg-blue-600 hover:text-white' },
-                  { icon: InstagramIcon, label: 'Instagram', href: 'https://www.instagram.com/tradingcapital', color: 'hover:bg-pink-500 hover:text-white' },
-                  { icon: XIcon, label: 'X', href: 'https://x.com/tradingcapital', color: 'hover:bg-[#0D0F12] hover:text-white hover:border-white' },
+                  { icon: LinkedInIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/company/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
+                  { icon: FacebookIcon, label: 'Facebook', href: 'https://www.facebook.com/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
+                  { icon: InstagramIcon, label: 'Instagram', href: 'https://www.instagram.com/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
+                  { icon: XIcon, label: 'X', href: 'https://x.com/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
                 ].map((social, i) => (
                   <a
                     key={i}
@@ -202,34 +205,33 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right - Animated Phone Mockup */}
-          <div className="hero-phone relative flex justify-center lg:justify-end perspective-1000">
-            <div className="relative animate-float">
-              {/* Glow Ring */}
-              <div className="absolute inset-0 -z-10">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-[#C6FF00]/20 rounded-full animate-spin" style={{ animationDuration: '20s' }} />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-[#C6FF00]/20 rounded-full animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
+          {/* Right - Brand/Data Preview */}
+          <div className="hero-phone relative flex justify-center lg:mt-4 lg:justify-end">
+            <div className="w-full max-w-[470px] rounded-2xl border border-[#C6FF00]/25 bg-black/45 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+              <div className="mb-5 flex items-center justify-between gap-4 border-b border-white/10 pb-5">
+                <img src="/tc-icon.png" alt="TC" className="h-20 w-20 rounded-2xl object-contain" />
+                <div className="text-right">
+                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[#C6FF00]">TC Trader</div>
+                  <div className="mt-2 text-sm text-zinc-400">Institutional funding route</div>
+                </div>
               </div>
-              
-              <img 
-                src="/phone-mockup.png" 
-                alt="Trading App" 
-                className="w-full max-w-[350px] lg:max-w-[400px] drop-shadow-2xl"
-              />
-              
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 px-3 py-1.5 bg-[#C6FF00]/90 text-black text-xs font-bold rounded-full animate-bounce">
-                80 / 20 Split
+
+              <div className="space-y-3">
+                {[
+                  { label: 'Program Routes', value: '1-Step / 2-Step / Instant' },
+                  { label: 'Trader Share', value: '80%' },
+                  { label: 'Payout Cycle', value: '14 Days' },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center justify-between rounded-xl border border-white/10 bg-zinc-950/70 px-4 py-3">
+                    <span className="text-sm text-zinc-500">{item.label}</span>
+                    <span className="text-sm font-bold text-white">{item.value}</span>
+                  </div>
+                ))}
               </div>
-              <div className="absolute top-1/3 -left-8 px-3 py-1.5 bg-[#C6FF00]/90 text-black text-xs font-bold rounded-full animate-pulse">
-                Risk Clarity
+
+              <div className="mt-5 h-20 rounded-xl border border-[#C6FF00]/20 bg-[linear-gradient(rgba(198,255,0,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(198,255,0,0.06)_1px,transparent_1px)] bg-[size:24px_24px] p-3">
+                <div className="h-full w-full rounded-lg border border-[#C6FF00]/30 bg-gradient-to-r from-[#C6FF00]/5 via-[#C6FF00]/20 to-transparent" />
               </div>
-              <div className="absolute -bottom-4 right-8 px-3 py-1.5 bg-[#C6FF00]/90 text-black text-xs font-bold rounded-full animate-pulse" style={{ animationDelay: '1s' }}>
-                14-Day Cycle
-              </div>
-              
-              {/* Glow */}
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#C6FF00]/30 to-[#C6FF00]/30 blur-[80px] rounded-full scale-75" />
             </div>
           </div>
         </div>
@@ -346,7 +348,7 @@ const BitcoinLogo = () => (
 )
 
 const NowPaymentsLogo = () => (
-  <div className="flex h-16 w-32 items-center justify-center rounded-2xl bg-white px-3 shadow-[0_0_28px_rgba(96,165,250,0.2)]">
+  <div className="flex h-16 w-32 items-center justify-center rounded-2xl bg-white px-3 shadow-[0_0_28px_rgba(198,255,0,0.18)]">
     <img
       src="/nowpayments-logo.png"
       alt="NOWPayments"
@@ -515,10 +517,10 @@ const JoinCommunity = () => {
   }, [])
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: LinkedInIcon, href: 'https://www.linkedin.com/company/tradingcapital', color: 'hover:bg-blue-700 hover:text-white' },
-    { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/tradingcapital', color: 'hover:bg-blue-600 hover:text-white' },
-    { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/tradingcapital', color: 'hover:bg-pink-500 hover:text-white' },
-    { name: 'Twitter', icon: XIcon, href: 'https://x.com/tradingcapital', color: 'hover:bg-[#0D0F12] hover:text-white hover:border-white' },
+    { name: 'LinkedIn', icon: LinkedInIcon, href: 'https://www.linkedin.com/company/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
+    { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
+    { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
+    { name: 'Twitter', icon: XIcon, href: 'https://x.com/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
   ]
 
   return (

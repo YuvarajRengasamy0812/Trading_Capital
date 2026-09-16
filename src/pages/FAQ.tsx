@@ -69,7 +69,7 @@ const FAQ = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/faq-hero.jpg" 
+            src="/tc-internal-hero.png" 
             alt="FAQ Support" 
             className="w-full h-full object-cover opacity-70"
           />
@@ -149,7 +149,7 @@ const FAQ = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/trading-dashboard.jpg" 
+            src="/tc-data-wall.png" 
             alt="Trading Dashboard" 
             className="w-full h-full object-cover opacity-50"
           />

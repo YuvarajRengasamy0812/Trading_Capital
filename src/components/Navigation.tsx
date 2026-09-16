@@ -49,7 +49,11 @@ const Navigation = () => {
       <div className="w-full px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link to="/" className="flex items-center">
-            <img src="/trading-capital-logo.png" alt="Trading Capital" className="h-9 w-auto sm:h-10 lg:h-12" />
+            <img
+              src="/trading-capital-stacked-white-lime.png"
+              alt="Trading Capital"
+              className="h-14 w-auto sm:h-16 lg:h-[72px]"
+            />
           </Link>
 
           <div className="hidden xl:flex items-center gap-1">

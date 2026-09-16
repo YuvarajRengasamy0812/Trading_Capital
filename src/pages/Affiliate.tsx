@@ -34,7 +34,7 @@ const Affiliate = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/partnership.jpg" 
+            src="/tc-internal-hero.png" 
             alt="Partnership" 
             className="w-full h-full object-cover opacity-60"
           />
@@ -136,7 +136,7 @@ const Affiliate = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/wealth-visual.jpg" 
+            src="/tc-data-wall.png" 
             alt="Wealth Visualization" 
             className="w-full h-full object-cover opacity-50"
           />
@@ -171,7 +171,7 @@ const Affiliate = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/scaling-journey.jpg" 
+            src="/tc-architecture-green.png" 
             alt="Scaling Journey" 
             className="w-full h-full object-cover opacity-50"
           />
@@ -208,7 +208,7 @@ const Affiliate = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/achievement-trophy.jpg" 
+            src="/tc-internal-hero.png" 
             alt="Achievement Trophy" 
             className="w-full h-full object-cover opacity-50"
           />

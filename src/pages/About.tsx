@@ -30,7 +30,7 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/about-trading-hero.png" 
+            src="/tc-internal-hero.png" 
             alt="Trading Capital workspace" 
             className="w-full h-full object-cover opacity-70"
           />
@@ -100,7 +100,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#C6FF00]/20 to-[#C6FF00]/20 rounded-2xl blur-2xl" />
               <img 
-                src="/profit-growth.jpg" 
+                src="/tc-data-wall.png" 
                 alt="Profit Growth" 
                 className="relative rounded-2xl border border-zinc-800 w-full"
               />
@@ -167,7 +167,7 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/achievement-trophy.jpg" 
+            src="/tc-architecture-green.png" 
             alt="Achievement" 
             className="w-full h-full object-cover opacity-50"
           />
@@ -229,7 +229,7 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/trading-floor.jpg" 
+            src="/tc-internal-hero.png" 
             alt="Trading Floor" 
             className="w-full h-full object-cover opacity-15"
           />

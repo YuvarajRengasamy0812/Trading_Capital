@@ -82,10 +82,10 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: LinkedInIcon, href: 'https://www.linkedin.com/company/tradingcapital', color: 'hover:bg-blue-700 hover:text-white' },
-    { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/tradingcapital', color: 'hover:bg-blue-600 hover:text-white' },
-    { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/tradingcapital', color: 'hover:bg-pink-500 hover:text-white' },
-    { name: 'X', icon: XIcon, href: 'https://x.com/tradingcapital', color: 'hover:bg-[#0D0F12] hover:text-white hover:border-white' },
+    { name: 'LinkedIn', icon: LinkedInIcon, href: 'https://www.linkedin.com/company/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
+    { name: 'Facebook', icon: FacebookIcon, href: 'https://www.facebook.com/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
+    { name: 'Instagram', icon: InstagramIcon, href: 'https://www.instagram.com/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
+    { name: 'X', icon: XIcon, href: 'https://x.com/tradingcapital', color: 'hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00]' },
   ]
 
   const renderFooterLink = (item: { label: string; path: string }) => {
@@ -131,7 +131,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-12 mb-12">
             <div>
               <Link to="/" className="flex items-center mb-4">
-                <img src="/trading-capital-logo.png" alt="Trading Capital" className="h-12 w-auto" />
+                <img src="/trading-capital-stacked-white-lime.png" alt="Trading Capital" className="h-20 w-auto" />
               </Link>
               <p className="text-zinc-500 text-sm">Trade without limits. Scale without fear.</p>
             </div>

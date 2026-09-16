@@ -139,8 +139,8 @@
   50% { transform: translateY(-15px); }
 }
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.6; box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
-  50% { opacity: 1; box-shadow: 0 0 40px rgba(0, 240, 255, 0.6); }
+  0%, 100% { opacity: 0.6; box-shadow: 0 0 20px rgba(198, 255, 0, 0.36); }
+  50% { opacity: 1; box-shadow: 0 0 40px rgba(198, 255, 0, 0.52); }
 }
 @keyframes marquee {
   0% { transform: translateX(0); }

@@ -1,7 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { Toaster } from 'sonner'
-import PromoBanner from '@/components/PromoBanner'
 import TopBar from '@/components/TopBar'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -16,7 +15,6 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen bg-[#0D0F12] text-white">
-      <PromoBanner />
       <TopBar />
       <Navigation />
       <main>
