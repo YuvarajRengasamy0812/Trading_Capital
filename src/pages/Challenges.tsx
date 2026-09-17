@@ -10,7 +10,7 @@ const Challenges = () => {
   return (
     <div className="min-h-screen bg-[#0D0F12]">
       {/* Hero */}
-      <section className="relative py-24 px-6 overflow-hidden">
+      <section className="relative py-20 px-6 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
@@ -26,15 +26,15 @@ const Challenges = () => {
             <Shield className="w-4 h-4 text-[#C6FF00]" />
             <span className="text-[#C6FF00] text-sm font-medium">Your Strategy. Our Capital.</span>
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-5 leading-[0.95]">
             BECOME A
             <br />
-            <span className="mt-4 inline-flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <img src="/tc-icon.png" alt="TC" className="h-16 w-16 rounded-2xl object-contain sm:h-20 sm:w-20 md:h-24 md:w-24" />
+            <span className="mt-3 inline-flex items-center justify-center gap-3">
+              <img src="/tc-icon-transparent.png" alt="TC" className="h-12 w-auto object-contain sm:h-10 md:h-12 lg:h-12" />
               <NeonText>TRADER</NeonText>
             </span>
           </h1>
-          <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
             Select your program, choose your account size and trade within clear, transparent parameters.
           </p>
         </div>

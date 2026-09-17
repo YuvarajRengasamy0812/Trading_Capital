@@ -126,9 +126,9 @@ const HeroSection = () => {
                   <NeonText color="purple">OUR CAPITAL.</NeonText>
                 </div>
               </h1>
-              <p className="hero-subtitle mt-4 max-w-2xl text-base text-zinc-300 lg:text-lg">
+              {/* <p className="hero-subtitle mt-4 max-w-2xl text-base text-zinc-300 lg:text-lg">
                 Prove your trading ability. Access greater capital. Build your path to scale.
-              </p>
+              </p> */}
             </div>
 
             {/* Animated Subtitle */}
@@ -209,7 +209,7 @@ const HeroSection = () => {
           <div className="hero-phone relative flex justify-center lg:mt-4 lg:justify-end">
             <div className="w-full max-w-[470px] rounded-2xl border border-[#C6FF00]/25 bg-black/45 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl">
               <div className="mb-5 flex items-center justify-between gap-4 border-b border-white/10 pb-5">
-                <img src="/tc-icon.png" alt="TC" className="h-20 w-20 rounded-2xl object-contain" />
+                <img src="/tc-icon-transparent.png" alt="TC" className="h-16 w-auto object-contain" />
                 <div className="text-right">
                   <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[#C6FF00]">TC Trader</div>
                   <div className="mt-2 text-sm text-zinc-400">Institutional funding route</div>
