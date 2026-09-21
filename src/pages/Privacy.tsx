@@ -120,8 +120,8 @@ const Privacy = () => {
               <p className="text-zinc-400">
                 If you have any questions about this Privacy Policy, please contact us at:
                 <br />
-                <a href="mailto:privacy@tradingcapital." className="text-[#C6FF00] hover:text-[#DFFF66]">
-                  privacy@tradingcapital.
+                <a href="mailto:privacy@tradingcapital.com" className="text-[#C6FF00] hover:text-[#DFFF66]">
+                  privacy@tradingcapital.com
                 </a>
               </p>
             </section>

@@ -33,7 +33,7 @@ const Navigation = () => {
 
   const navLinks = [
     { path: '/', label: 'Home', icon: Home },
-    { path: '/challenges', label: 'Programs', icon: Target },
+    { path: '/challenges', label: 'Challenges', icon: Target },
     { path: '/affiliate', label: 'Affiliate', icon: Users },
     { path: '/faq', label: 'FAQ', icon: HelpCircle },
     { path: '/about', label: 'About', icon: Info },
@@ -84,7 +84,7 @@ const Navigation = () => {
             <a href={CHOOSE_ACCOUNT_URL} onClick={scrollToTop}>
               <Button className="bg-[#C6FF00] hover:bg-[#DFFF66] text-black font-semibold px-6 glow-primary">
                 <UserPlus className="mr-2 h-4 w-4" />
-                Choose Your Account
+                Become a TC Trader
               </Button>
             </a>
           </div>
@@ -120,7 +120,7 @@ const Navigation = () => {
               </Button>
             </a>
             <a href={CHOOSE_ACCOUNT_URL} onClick={scrollToTop}>
-              <Button className="w-full bg-[#C6FF00] px-2 text-black font-semibold">Choose Account</Button>
+              <Button className="w-full bg-[#C6FF00] px-2 text-black font-semibold">Become TC</Button>
             </a>
           </div>
         </div>

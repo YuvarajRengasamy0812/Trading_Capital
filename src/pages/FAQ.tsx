@@ -26,18 +26,18 @@ const FAQ = () => {
     { category: 'general', q: 'What is Trading Capital?', a: 'Trading Capital is a proprietary trading firm that provides funded accounts to traders who pass our evaluation challenges. We offer trading capital packages with profit splits up to 80%.' },
     { category: 'general', q: 'Is Trading Capital regulated?', a: 'Trading Capital operates as a proprietary trading firm providing simulated trading evaluations. We are not a broker and do not hold client funds for trading purposes.' },
     { category: 'general', q: 'Which countries can participate?', a: 'We accept traders from most countries worldwide. However, due to regulatory restrictions, we cannot accept traders from sanctioned countries or regions where our services are prohibited.' },
-    { category: 'general', q: 'How do I get started?', a: 'Choose a program, select an account size, review the rules, and continue through checkout. Your next steps appear inside the Trader Area.' },
+    { category: 'general', q: 'How do I get started?', a: 'Choose a challenge, select an account size, review the Trading Parameters, and continue through checkout. Your next steps appear inside the Trader Area.' },
     
     // Challenges
-    { category: 'challenges', q: 'What challenge types do you offer?', a: 'We offer three routes: 1-Step Challenge (Most Popular), 2-Step Challenge (Best Value), and Instant Funding (No Evaluation).' },
-    { category: 'challenges', q: 'What is the profit target?', a: 'For 1-Step: 8%. For 2-Step: 8% in Phase 1 and 5% in Phase 2. Instant Funding has no evaluation target.' },
+    { category: 'challenges', q: 'What challenge types do you offer?', a: 'Trading Capital offers two launch routes: 1-Step Challenge for a direct path and 2-Step Challenge for more room across two phases.' },
+    { category: 'challenges', q: 'What is the profit target?', a: 'For 1-Step: 8%. For 2-Step: 8% in Phase 1 and 5% in Phase 2.' },
     { category: 'challenges', q: 'What happens if I fail a challenge?', a: 'If you hit the maximum loss limit, your challenge will be terminated. You can review the rules and choose another account when you are ready.' },
     { category: 'challenges', q: 'Which account sizes are available?', a: 'The approved launch account sizes are $10K, $25K, $50K and $100K.' },
     { category: 'challenges', q: 'How long do I have to complete a challenge?', a: 'There are no time limits on our challenges. You can take as long as you need to reach the profit target while staying within the risk parameters.' },
     
     // Payouts
     { category: 'payouts', q: 'How do payouts work?', a: 'Eligible funded traders operate on a 14-day payout cycle, subject to the applicable payout rules and account status.' },
-    { category: 'payouts', q: 'What is the profit split?', a: 'The 2-Step, 1-Step, and Instant routes offer profit splits up to 80%.' },
+    { category: 'payouts', q: 'What is the profit split?', a: 'The 1-Step and 2-Step routes use an 80% trader / 20% Trading Capital profit split.' },
     { category: 'payouts', q: 'What payout methods are available?', a: 'We offer multiple payout methods including Bank Transfer, Cryptocurrency (BTC, ETH, USDT), Visa/Master Card, and Local Transfer. Choose the method that works best for you.' },
     { category: 'payouts', q: 'Is there a minimum payout amount?', a: 'No, there is no minimum payout amount. You can request a payout of any size, even $1.' },
     { category: 'payouts', q: 'How often can I request payouts?', a: 'Payout eligibility follows the 14-day cycle and the applicable payout rules for your account status.' },
@@ -48,7 +48,7 @@ const FAQ = () => {
     { category: 'trading', q: 'Can I hold positions over the weekend?', a: 'Yes, weekend holding is allowed. You can keep your positions open over the weekend without any penalties.' },
     { category: 'trading', q: 'What instruments can I trade?', a: 'You can trade Forex, Indices, Commodities, and Cryptocurrencies. We offer competitive spreads and deep liquidity on all instruments.' },
     { category: 'trading', q: 'Can I use EAs and trading bots?', a: 'Yes, you can use Expert Advisors (EAs) and trading bots. However, we prohibit any form of arbitrage, latency exploitation, or manipulative trading strategies.' },
-    { category: 'trading', q: 'What is the daily drawdown limit?', a: 'Daily drawdown is 3% for 1-Step, 5% for 2-Step, and 3% for Instant Funding.' },
+    { category: 'trading', q: 'What is the daily drawdown limit?', a: 'Daily drawdown is 3% for 1-Step and 5% for 2-Step.' },
     
     // Scaling
     { category: 'scaling', q: 'How does scaling work?', a: 'The scaling section is reserved for launch, but final numeric mechanics remain configurable pending risk and operations sign-off.' },
@@ -69,8 +69,8 @@ const FAQ = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/tc-internal-hero.png" 
-            alt="FAQ Support" 
+            src="/faq-hero.jpg"
+            alt="Trading Capital support"
             className="w-full h-full object-cover opacity-70"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F12]/40 via-black/60 to-[#0D0F12]" />
@@ -149,7 +149,7 @@ const FAQ = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/tc-data-wall.png" 
+            src="/tc-architecture-green.png"
             alt="Trading Dashboard" 
             className="w-full h-full object-cover opacity-50"
           />

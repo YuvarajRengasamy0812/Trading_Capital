@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card'
 const About = () => {
   const stats = [
     { value: 'TC', label: 'Brand Base' },
-    { value: '3', label: 'Program Routes' },
+    { value: '2', label: 'Challenge Routes' },
     { value: '4', label: 'Account Sizes' },
     { value: '80/20', label: 'Profit Split' },
   ]
@@ -30,8 +30,8 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/tc-internal-hero.png" 
-            alt="Trading Capital workspace" 
+            src="/about-trading-hero.png"
+            alt="Trading Capital institutional architecture"
             className="w-full h-full object-cover opacity-70"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F12]/30 via-[#0D0F12]/55 to-[#0D0F12]" />
@@ -100,7 +100,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#C6FF00]/20 to-[#C6FF00]/20 rounded-2xl blur-2xl" />
               <img 
-                src="/tc-data-wall.png" 
+                src="/profit-growth.jpg"
                 alt="Profit Growth" 
                 className="relative rounded-2xl border border-zinc-800 w-full"
               />
@@ -229,8 +229,8 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/tc-internal-hero.png" 
-            alt="Trading Floor" 
+            src="/team.jpg"
+            alt="Trading Capital team"
             className="w-full h-full object-cover opacity-15"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/95 to-zinc-950" />
@@ -245,7 +245,7 @@ const About = () => {
             If you are passionate about trading and fintech, we would love to hear from you.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="mailto:careers@tradingcapital." className="inline-flex items-center gap-2 px-6 py-3 bg-[#C6FF00] hover:bg-[#DFFF66] text-black font-bold rounded-lg transition-colors">
+            <a href="mailto:careers@tradingcapital.com" className="inline-flex items-center gap-2 px-6 py-3 bg-[#C6FF00] hover:bg-[#DFFF66] text-black font-bold rounded-lg transition-colors">
               View Open Positions
             </a>
           </div>

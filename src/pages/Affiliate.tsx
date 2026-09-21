@@ -34,7 +34,7 @@ const Affiliate = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/tc-internal-hero.png" 
+            src="/partnership.jpg"
             alt="Partnership" 
             className="w-full h-full object-cover opacity-60"
           />
@@ -93,7 +93,7 @@ const Affiliate = () => {
                   <div className="text-zinc-400 text-sm mb-2">Estimated Monthly Earnings</div>
                   <div className="text-4xl md:text-5xl font-black text-[#C6FF00]">${estimatedEarnings.toLocaleString()}</div>
                   <div className="text-zinc-500 text-sm mt-2">
-                    {currentTier.name} tier â€¢ ${earningsPerReferral} per referral at {currentTier.rate * 100}% commission
+                    {currentTier.name} tier - ${earningsPerReferral} per referral at {currentTier.rate * 100}% commission
                   </div>
                 </div>
               </CardContent>
@@ -136,7 +136,7 @@ const Affiliate = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/tc-data-wall.png" 
+            src="/wealth-visual.jpg"
             alt="Wealth Visualization" 
             className="w-full h-full object-cover opacity-50"
           />
@@ -208,7 +208,7 @@ const Affiliate = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/tc-internal-hero.png" 
+            src="/achievement-trophy.jpg"
             alt="Achievement Trophy" 
             className="w-full h-full object-cover opacity-50"
           />
@@ -236,7 +236,7 @@ const Affiliate = () => {
 
               <div className="flex items-center justify-center gap-2 text-zinc-400">
                 <Check className="w-4 h-4 text-[#C6FF00]" />
-                <span className="text-sm">Free to join â€¢ Instant approval â€¢ Weekly payouts</span>
+                <span className="text-sm">Free to join - application review - weekly payouts</span>
               </div>
             </CardContent>
           </Card>

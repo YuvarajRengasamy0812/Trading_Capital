@@ -77,7 +77,7 @@ const Contact = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/tc-internal-hero.png" 
+            src="/tc-internal-hero.png"
             alt="Contact Support" 
             className="w-full h-full object-cover opacity-60"
           />
@@ -149,7 +149,7 @@ const Contact = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/tc-data-wall.png" 
+            src="/trading-dashboard.jpg"
             alt="Trading Dashboard" 
             className="w-full h-full object-cover opacity-50"
           />
@@ -255,10 +255,10 @@ const Contact = () => {
                   </p>
                   <p className="text-zinc-400 text-sm">
                     <a
-                      href="mailto:affiliates@tradingcapital."
+                      href="mailto:affiliates@tradingcapital.com"
                       className="hover:text-[#C6FF00] transition-colors"
                     >
-                      affiliates@tradingcapital.
+                      affiliates@tradingcapital.com
                     </a>
                   </p>
                 </div>
@@ -278,7 +278,7 @@ const Contact = () => {
                     <span className="text-white font-medium">Location</span>
                   </div>
                   <p className="text-zinc-400 text-sm">Serving traders worldwide</p>
-                  <p className="text-zinc-400 text-sm">150+ countries supported</p>
+                  <p className="text-zinc-400 text-sm">Availability is subject to jurisdictional restrictions</p>
                 </div>
               </div>
             </div>

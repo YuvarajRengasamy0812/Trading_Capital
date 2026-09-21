@@ -152,7 +152,7 @@ const HeroSection = () => {
               <Link to="/challenges">
                 <Button size="lg" className="bg-gradient-to-r from-[#C6FF00] to-[#C6FF00] hover:from-[#DFFF66] hover:to-[#C6FF00] text-black font-bold px-7 py-5 text-base shadow-[0_0_30px_rgba(198,255,0,0.4)] hover:shadow-[0_0_40px_rgba(198,255,0,0.6)] transition-all">
                   <Rocket className="mr-2 w-5 h-5" />
-                  Choose Your Account
+                  Become a TC Trader
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
@@ -172,7 +172,7 @@ const HeroSection = () => {
               </div>
               <div className="hero-stat">
                 <div className="text-3xl font-black text-white">3</div>
-                <div className="text-sm text-zinc-500">Program routes</div>
+                <div className="text-sm text-zinc-500">Challenge routes</div>
               </div>
               <div className="hero-stat">
                 <div className="text-3xl font-black">
@@ -218,7 +218,7 @@ const HeroSection = () => {
 
               <div className="space-y-3">
                 {[
-                  { label: 'Program Routes', value: '1-Step / 2-Step / Instant' },
+                  { label: 'Challenge Routes', value: '1-Step / 2-Step' },
                   { label: 'Trader Share', value: '80%' },
                   { label: 'Payout Cycle', value: '14 Days' },
                 ].map((item) => (
@@ -264,12 +264,12 @@ const ChallengePreview = () => {
           showRewardBadge
           title={
             <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-              CHOOSE YOUR TRADING CAPITAL.
+              CHOOSE YOUR CHALLENGE.
               <br />
-              <span className="text-[#C6FF00] drop-shadow-[0_0_15px_rgba(198,255,0,0.8)]">CHOOSE THE ROUTE THAT FITS YOUR STRATEGY.</span>
+              <span className="text-[#C6FF00] drop-shadow-[0_0_15px_rgba(198,255,0,0.8)]">PICK THE EVALUATION THAT FITS YOUR STRATEGY.</span>
             </h2>
           }
-          subtitle="Select your program, choose your account size and start trading within clear, transparent parameters."
+          subtitle="Choose your account size, prove your strategy and become a TC Trader."
           showViewAll
           viewAllHref="/challenges"
         />
@@ -566,7 +566,7 @@ const JoinCommunity = () => {
 const FAQPreview = () => {
   const faqs = [
     { q: 'What is Trading Capital?', a: 'Trading Capital is a proprietary trading evaluation firm that assesses performance, discipline, and risk management through structured funding challenges in a simulated trading environment.' },
-    { q: 'Which program should I choose?', a: 'Choose 1-Step for the fastest evaluation route, 2-Step for a lower entry price and wider risk parameters, or Instant Funding to start without an evaluation phase.' },
+    { q: 'Which challenge should I choose?', a: 'Choose 1-Step for the most direct route, or 2-Step for a lower entry price and wider drawdown parameters across two phases.' },
     { q: 'What profit share do funded traders receive?', a: "Trading Capital's standard funded profit split is 80% to the trader and 20% to Trading Capital." },
     { q: 'How often can I receive payouts?', a: 'Eligible funded traders operate on a 14-day payout cycle, subject to the applicable payout rules and account status.' },
   ]

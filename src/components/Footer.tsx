@@ -55,17 +55,17 @@ const XIcon = () => (
 const Footer = () => {
   const quickLinks = [
     { label: 'FAQ', path: '/faq' },
-    { label: 'Programs', path: '/challenges' },
+    { label: 'Challenges', path: '/challenges' },
     { label: 'Affiliate Program', path: '/affiliate' },
     { label: 'Trader Area', path: TRADER_AREA_URL },
-    { label: 'Choose Your Account', path: CHOOSE_ACCOUNT_URL },
+    { label: 'Become a TC Trader', path: CHOOSE_ACCOUNT_URL },
     { label: 'Terms & Conditions', path: '/terms' },
   ]
 
   const links = {
     Trading: [
       { label: 'Home', path: '/' },
-      { label: 'Programs', path: '/challenges' },
+      { label: 'Challenges', path: '/challenges' },
       { label: 'How It Works', path: '/#how-it-works' },
       { label: 'FAQ', path: '/faq' },
     ],
@@ -113,14 +113,14 @@ const Footer = () => {
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
             YOUR STRATEGY. <span className="text-[#C6FF00]">OUR CAPITAL.</span>
             <br />
-            CHOOSE YOUR ACCOUNT
+            BECOME A TC TRADER
           </h2>
           <a href={CHOOSE_ACCOUNT_URL}>
             <Button
               size="lg"
               className="bg-[#C6FF00] hover:bg-[#DFFF66] text-black font-bold px-10 py-7 text-lg glow-primary"
             >
-              Choose Your Account
+              Become a TC Trader
             </Button>
           </a>
         </div>
@@ -133,7 +133,7 @@ const Footer = () => {
               <Link to="/" className="flex items-center mb-4">
                 <img src="/trading-capital-stacked-white-lime.png" alt="Trading Capital" className="h-20 w-auto" />
               </Link>
-              <p className="text-zinc-500 text-sm">Trade without limits. Scale without fear.</p>
+              <p className="text-zinc-500 text-sm">Your Strategy. Our Capital.</p>
             </div>
 
             <div>
@@ -163,7 +163,7 @@ const Footer = () => {
 
           <div className="pt-8 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-[#C6FF00] text-sm font-medium tracking-wide">
-              Trade Without Limits. Scale Without Fear.
+              Your Strategy. Our Capital.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               {socialLinks.map((social) => (
