@@ -10,32 +10,36 @@ import {
 } from '@/components/ui/accordion'
 
 const comparisonRows = [
-  { label: 'Positioning', oneStep: 'One step. One target.', twoStep: 'Two steps. More room.' },
-  { label: 'Profit Target', oneStep: '8%', twoStep: '8% -> 5%' },
-  { label: 'Daily Drawdown', oneStep: '3%', twoStep: '5%' },
-  { label: 'Maximum Drawdown', oneStep: '6%', twoStep: '10%' },
-  { label: 'Profit Split', oneStep: '80% Trader', twoStep: '80% Trader' },
-  { label: 'Payout Cycle', oneStep: 'Every 14 days', twoStep: 'Every 14 days' },
+  { label: 'Positioning', oneStep: 'One step. Clear targets.', twoStep: 'Two steps. More room.', instant: 'Instant funding. No evaluation.' },
+  { label: 'Profit Target', oneStep: '8% -> 5%', twoStep: '7% -> 4%', instant: 'None' },
+  { label: 'Daily Drawdown', oneStep: '4%', twoStep: '5%', instant: '4%' },
+  { label: 'Maximum Drawdown', oneStep: '8%', twoStep: '8%', instant: '7%' },
+  { label: 'Profit Split', oneStep: '90% Trader', twoStep: '90% Trader', instant: '90% Trader' },
+  { label: 'Payout Cycle', oneStep: 'Every 10 days', twoStep: 'Every 10 days', instant: 'Every 10 days' },
+  { label: 'Leverage', oneStep: '1:100', twoStep: '1:100', instant: '1:50' },
+  { label: 'Consistency Rules', oneStep: 'Program rules apply', twoStep: 'Program rules apply', instant: 'None' },
+  { label: 'Minimum Profitable Days', oneStep: 'Program rules apply', twoStep: 'Program rules apply', instant: 'None' },
 ]
 
 const riskRows = [
-  { size: '$10,000', risk: '1%', positions: '3', exposure: '3%', leverage: 'Up to 1:30' },
-  { size: '$25,000', risk: '1%', positions: '5', exposure: '3%', leverage: 'Up to 1:30' },
-  { size: '$50,000', risk: '1%', positions: '5', exposure: '3%', leverage: 'Up to 1:30' },
-  { size: '$100,000', risk: '1%', positions: '5', exposure: '3%', leverage: 'Up to 1:30' },
+  { size: '$10,000', risk: '1%', positions: '3', exposure: '3%', leverage: '1-Step / 2-Step: 1:100; Instant: 1:50' },
+  { size: '$25,000', risk: '1%', positions: '5', exposure: '3%', leverage: '1-Step / 2-Step: 1:100; Instant: 1:50' },
+  { size: '$50,000', risk: '1%', positions: '5', exposure: '3%', leverage: '1-Step / 2-Step: 1:100; Instant: 1:50' },
+  { size: '$100,000', risk: '1%', positions: '5', exposure: '3%', leverage: '1-Step / 2-Step: 1:100; Instant: 1:50' },
+  { size: '$200,000', risk: '1%', positions: '5', exposure: '3%', leverage: '1-Step / 2-Step: 1:100; Instant: 1:50' },
 ]
 
 const journey = [
   { icon: Target, title: 'Choose Your Challenge', desc: 'Pick the evaluation that fits your trading style.' },
   { icon: BarChart3, title: 'Prove Your Strategy', desc: 'Hit the target. Stay within the Trading Parameters.' },
   { icon: Shield, title: 'Become a TC Trader', desc: 'Complete the evaluation and move to your TC Trader account.' },
-  { icon: CircleDollarSign, title: 'Trade, Perform & Get Rewarded', desc: 'Keep 80% of eligible performance rewards every 14 days.' },
+  { icon: CircleDollarSign, title: 'Trade, Perform & Get Rewarded', desc: 'Keep 90% of eligible performance rewards every 10 days.' },
 ]
 
 const faqs = [
   {
     q: 'Which challenge should I choose?',
-    a: 'Choose 1-Step if you want the most direct route: one target and tighter drawdown. Choose 2-Step if you prefer two phases, a lower entry fee and wider drawdown parameters.',
+    a: 'Choose 1-Step for the direct challenge route, 2-Step for lower fees across two phases, or Instant Funding if you want to skip evaluation targets.',
   },
   {
     q: 'Are Trading Capital evaluations simulated?',
@@ -46,12 +50,16 @@ const faqs = [
     a: 'Daily drawdown is the maximum daily loss limit for the selected challenge. Maximum drawdown is the overall account loss limit. Final reset time, timezone and balance/equity methodology should match the legal Trading Rules.',
   },
   {
+    q: 'What leverage is available?',
+    a: '1-Step Challenge and 2-Step Challenge accounts use 1:100 leverage. Instant Funding accounts use 1:50 leverage.',
+  },
+  {
     q: 'Can I trade news, weekends or EAs?',
     a: 'News trading, weekend holding and legitimate EAs are shown as permitted on the site, subject to prohibited-strategy, risk-management and platform rules.',
   },
   {
     q: 'When can a TC Trader request a payout?',
-    a: 'Eligible TC Traders operate on a 14-day payout cycle, subject to verification, account status, payout method availability and the final payout policy.',
+    a: 'Eligible TC Traders operate on a 10-day payout cycle, subject to verification, account status, payout method availability and the final payout policy.',
   },
 ]
 
@@ -63,37 +71,41 @@ const ProductCard = ({
   facts,
   href,
 }: {
-  type: '1-Step' | '2-Step'
+  type: '1-Step' | '2-Step' | 'Instant Funding'
   title: string
   subtitle: string
   body: string
   facts: string[]
   href: string
 }) => (
-  <div className="rounded-lg border border-zinc-800 bg-zinc-950/75 p-6 backdrop-blur transition-all hover:border-[#C6FF00]/50">
-    <div className="mb-5 flex items-center justify-between gap-4">
-      <div>
-        <div className="text-xs font-bold uppercase tracking-[0.24em] text-[#C6FF00]">{type} Challenge</div>
-        <h2 className="mt-2 text-2xl font-black uppercase text-white">{title}</h2>
+  <div className="relative flex min-h-[520px] flex-col overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950/75 p-6 backdrop-blur transition-all hover:border-[#C6FF00]/50">
+    <img
+      src="/tc-icon-transparent.png"
+      alt="TC"
+      className="pointer-events-none absolute right-5 top-7 h-10 w-auto object-contain"
+    />
+    <div className="relative z-10 flex h-full flex-1 flex-col">
+      <div className="mb-5 pr-16">
+        <div className="text-xs font-bold uppercase tracking-[0.24em] text-[#C6FF00]">{type === 'Instant Funding' ? type : `${type} Challenge`}</div>
+        <h2 className="mt-3 text-[1.7rem] font-black uppercase leading-[1.08] text-white">{title}</h2>
       </div>
-      <img src="/tc-icon-transparent.png" alt="TC" className="h-12 w-auto" />
+      <p className="mb-3 text-xl font-bold leading-snug text-white">{subtitle}</p>
+      <p className="mb-6 text-sm leading-relaxed text-zinc-400">{body}</p>
+      <div className="mb-6 flex flex-wrap gap-2">
+        {facts.map((fact) => (
+          <span key={fact} className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-xs font-semibold text-zinc-300">
+            {fact}
+          </span>
+        ))}
+      </div>
+      <a
+        href={href}
+        className="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#C6FF00] px-5 py-3 text-sm font-black uppercase text-black transition-colors hover:bg-[#DFFF66]"
+      >
+        {type}
+        <ArrowRight className="h-4 w-4" />
+      </a>
     </div>
-    <p className="mb-2 text-xl font-bold text-white">{subtitle}</p>
-    <p className="mb-6 text-sm text-zinc-400">{body}</p>
-    <div className="mb-6 flex flex-wrap gap-2">
-      {facts.map((fact) => (
-        <span key={fact} className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-xs font-semibold text-zinc-300">
-          {fact}
-        </span>
-      ))}
-    </div>
-    <a
-      href={href}
-      className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#C6FF00] px-5 py-3 text-sm font-black uppercase text-black transition-colors hover:bg-[#DFFF66]"
-    >
-      Start {type}
-      <ArrowRight className="h-4 w-4" />
-    </a>
   </div>
 )
 
@@ -111,7 +123,7 @@ const Challenges = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F12]/25 via-transparent to-[#0D0F12]" />
         </div>
 
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="relative z-10 mx-auto grid max-w-[1500px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#C6FF00]/30 bg-[#C6FF00]/10 px-4 py-2">
               <Shield className="h-4 w-4 text-[#C6FF00]" />
@@ -142,21 +154,29 @@ const Challenges = () => {
             </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <ProductCard
               type="1-Step"
-              title="One Step. One Target."
-              subtitle="Reach 8%. Become a TC Trader."
-              body="One evaluation for traders who want a more direct route forward."
-              facts={['8% Target', '3% Daily Drawdown', '6% Max Drawdown', '80% Split', '14-Day Cycle']}
+              title="One Step. Clear Targets."
+              subtitle="Reach 8% and 5%. Become a TC Trader."
+              body="One challenge route for traders who want a more direct path forward."
+              facts={['8% -> 5% Targets', '4% Daily Drawdown', '8% Max Drawdown', '90% Split', '10-Day Cycle']}
               href="/checkout"
             />
             <ProductCard
               type="2-Step"
               title="Two Steps. More Room."
               subtitle="Prove consistency across two phases."
-              body="Reach 8% in Phase 1 and 5% in Phase 2 while trading within wider drawdown parameters."
-              facts={['8% -> 5% Targets', '5% Daily Drawdown', '10% Max Drawdown', '80% Split', '14-Day Cycle']}
+              body="Reach 7% in Phase 1 and 4% in Phase 2 while trading within the risk parameters."
+              facts={['7% -> 4% Targets', '5% Daily Drawdown', '8% Max Drawdown', '90% Split', '10-Day Cycle']}
+              href="/checkout"
+            />
+            <ProductCard
+              type="Instant Funding"
+              title="Instant Funding."
+              subtitle="Start funded without evaluation targets."
+              body="Trade with no consistency rules and no minimum profitable days."
+              facts={['No Target', '4% Daily Drawdown', '7% Max Drawdown', '90% Split', '10-Day Cycle']}
               href="/checkout"
             />
           </div>
@@ -175,12 +195,13 @@ const Challenges = () => {
           </div>
 
           <div className="overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-950/70">
-            <table className="w-full min-w-[720px]">
+            <table className="w-full min-w-[900px]">
               <thead>
                 <tr className="border-b border-zinc-800">
                   <th className="px-5 py-4 text-left text-sm font-semibold text-zinc-500">Trading Parameter</th>
                   <th className="px-5 py-4 text-left text-sm font-black text-[#C6FF00]">1-Step Challenge</th>
                   <th className="px-5 py-4 text-left text-sm font-black text-[#C6FF00]">2-Step Challenge</th>
+                  <th className="px-5 py-4 text-left text-sm font-black text-[#C6FF00]">Instant Funding</th>
                 </tr>
               </thead>
               <tbody>
@@ -189,6 +210,7 @@ const Challenges = () => {
                     <td className="px-5 py-4 text-sm text-zinc-400">{row.label}</td>
                     <td className="px-5 py-4 text-sm font-semibold text-white">{row.oneStep}</td>
                     <td className="px-5 py-4 text-sm font-semibold text-white">{row.twoStep}</td>
+                    <td className="px-5 py-4 text-sm font-semibold text-white">{row.instant}</td>
                   </tr>
                 ))}
               </tbody>
@@ -247,7 +269,7 @@ const Challenges = () => {
               Pricing, drawdown limits, risk limits and payout terms should be visible before a trader pays. The values below follow the supplied launch brief.
             </p>
             <div className="mt-6 rounded-lg border border-[#C6FF00]/25 bg-[#C6FF00]/10 p-5 text-sm text-zinc-300">
-              Drawdown example: on a $100,000 1-Step account, a 3% daily drawdown means the daily loss limit is $3,000. A 6% maximum drawdown means the overall loss limit is $6,000. Final reset time and balance/equity calculation must match the legal Trading Rules.
+              Drawdown example: on a $100,000 1-Step account, a 4% daily drawdown means the daily loss limit is $4,000. An 8% maximum drawdown means the overall loss limit is $8,000. Final reset time and balance/equity calculation must match the legal Trading Rules.
             </div>
           </div>
 

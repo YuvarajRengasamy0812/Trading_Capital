@@ -23,24 +23,25 @@ const FAQ = () => {
 
   const faqs = [
     // General
-    { category: 'general', q: 'What is Trading Capital?', a: 'Trading Capital is a proprietary trading firm that provides funded accounts to traders who pass our evaluation challenges. We offer trading capital packages with profit splits up to 80%.' },
+    { category: 'general', q: 'What is Trading Capital?', a: 'Trading Capital is a proprietary trading firm that provides funded accounts to traders who pass our evaluation challenges. We offer trading capital packages with profit splits up to 90%.' },
     { category: 'general', q: 'Is Trading Capital regulated?', a: 'Trading Capital operates as a proprietary trading firm providing simulated trading evaluations. We are not a broker and do not hold client funds for trading purposes.' },
     { category: 'general', q: 'Which countries can participate?', a: 'We accept traders from most countries worldwide. However, due to regulatory restrictions, we cannot accept traders from sanctioned countries or regions where our services are prohibited.' },
     { category: 'general', q: 'How do I get started?', a: 'Choose a challenge, select an account size, review the Trading Parameters, and continue through checkout. Your next steps appear inside the Trader Area.' },
     
     // Challenges
-    { category: 'challenges', q: 'What challenge types do you offer?', a: 'Trading Capital offers two launch routes: 1-Step Challenge for a direct path and 2-Step Challenge for more room across two phases.' },
-    { category: 'challenges', q: 'What is the profit target?', a: 'For 1-Step: 8%. For 2-Step: 8% in Phase 1 and 5% in Phase 2.' },
+    { category: 'challenges', q: 'What challenge types do you offer?', a: 'Trading Capital offers three launch routes: 1-Step Challenge, 2-Step Challenge and Instant Funding.' },
+    { category: 'challenges', q: 'What is the profit target?', a: 'For 1-Step: 8% in Phase 1 and 5% in Phase 2. For 2-Step: 7% in Phase 1 and 4% in Phase 2. Instant Funding has no profit target.' },
     { category: 'challenges', q: 'What happens if I fail a challenge?', a: 'If you hit the maximum loss limit, your challenge will be terminated. You can review the rules and choose another account when you are ready.' },
-    { category: 'challenges', q: 'Which account sizes are available?', a: 'The approved launch account sizes are $10K, $25K, $50K and $100K.' },
+    { category: 'challenges', q: 'Which account sizes are available?', a: 'The approved launch account sizes are $10K, $25K, $50K, $100K and $200K.' },
     { category: 'challenges', q: 'How long do I have to complete a challenge?', a: 'There are no time limits on our challenges. You can take as long as you need to reach the profit target while staying within the risk parameters.' },
+    { category: 'challenges', q: 'What leverage is available?', a: '1-Step Challenge and 2-Step Challenge accounts use 1:100 leverage. Instant Funding accounts use 1:50 leverage.' },
     
     // Payouts
-    { category: 'payouts', q: 'How do payouts work?', a: 'Eligible funded traders operate on a 14-day payout cycle, subject to the applicable payout rules and account status.' },
-    { category: 'payouts', q: 'What is the profit split?', a: 'The 1-Step and 2-Step routes use an 80% trader / 20% Trading Capital profit split.' },
+    { category: 'payouts', q: 'How do payouts work?', a: 'Eligible funded traders operate on a 10-day payout cycle, subject to the applicable payout rules and account status.' },
+    { category: 'payouts', q: 'What is the profit split?', a: 'Every funding route uses a 90% trader / 10% Trading Capital profit split.' },
     { category: 'payouts', q: 'What payout methods are available?', a: 'We offer multiple payout methods including Bank Transfer, Cryptocurrency (BTC, ETH, USDT), Visa/Master Card, and Local Transfer. Choose the method that works best for you.' },
     { category: 'payouts', q: 'Is there a minimum payout amount?', a: 'No, there is no minimum payout amount. You can request a payout of any size, even $1.' },
-    { category: 'payouts', q: 'How often can I request payouts?', a: 'Payout eligibility follows the 14-day cycle and the applicable payout rules for your account status.' },
+    { category: 'payouts', q: 'How often can I request payouts?', a: 'Payout eligibility follows the 10-day cycle and the applicable payout rules for your account status.' },
     
     // Trading Rules
     { category: 'trading', q: 'What platforms can I trade on?', a: 'We support MetaTrader 5 (MT5) and cTrader, two of the industry\'s leading trading platforms. Both offer advanced charting, automated trading, and mobile apps.' },
@@ -48,7 +49,7 @@ const FAQ = () => {
     { category: 'trading', q: 'Can I hold positions over the weekend?', a: 'Yes, weekend holding is allowed. You can keep your positions open over the weekend without any penalties.' },
     { category: 'trading', q: 'What instruments can I trade?', a: 'You can trade Forex, Indices, Commodities, and Cryptocurrencies. We offer competitive spreads and deep liquidity on all instruments.' },
     { category: 'trading', q: 'Can I use EAs and trading bots?', a: 'Yes, you can use Expert Advisors (EAs) and trading bots. However, we prohibit any form of arbitrage, latency exploitation, or manipulative trading strategies.' },
-    { category: 'trading', q: 'What is the daily drawdown limit?', a: 'Daily drawdown is 3% for 1-Step and 5% for 2-Step.' },
+    { category: 'trading', q: 'What is the daily drawdown limit?', a: 'Daily drawdown is 4% for 1-Step, 5% for 2-Step and 4% for Instant Funding.' },
     
     // Scaling
     { category: 'scaling', q: 'How does scaling work?', a: 'The scaling section is reserved for launch, but final numeric mechanics remain configurable pending risk and operations sign-off.' },

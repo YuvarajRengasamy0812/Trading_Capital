@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -68,6 +68,47 @@ const GlowingOrb = ({ color, className }: { color: string, className: string }) 
     style={{ background: color }} />
 )
 
+const CountUpStat = ({
+  end,
+  prefix = '',
+  suffix = '+',
+}: {
+  end: number
+  prefix?: string
+  suffix?: string
+}) => {
+  const [value, setValue] = useState(0)
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) {
+      setValue(end)
+      return
+    }
+
+    let frame = 0
+    let startTime: number | null = null
+    const duration = 1300
+
+    const tick = (time: number) => {
+      if (startTime === null) startTime = time
+      const progress = Math.min((time - startTime) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+
+      setValue(Math.round(end * eased))
+
+      if (progress < 1) {
+        frame = requestAnimationFrame(tick)
+      }
+    }
+
+    frame = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frame)
+  }, [end])
+
+  return <>{prefix}{value}{suffix}</>
+}
+
 // Hero Section
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null)
@@ -100,10 +141,10 @@ const HeroSection = () => {
       <AnimatedGrid />
       <FloatingParticles />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-4 lg:py-5">
-        <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-8 items-center">
+      <div className="relative z-10 mx-auto box-border w-full max-w-7xl px-6 py-4 lg:py-5">
+        <div className="grid min-w-0 gap-8 lg:grid-cols-[1.08fr_0.92fr] items-center">
           {/* Left Content */}
-          <div>
+          <div className="min-w-0">
             {/* Trust Badges */}
             <div className="hero-badge flex flex-wrap items-center gap-3 mb-5">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-zinc-900/80 border border-zinc-800 rounded-full">
@@ -131,55 +172,48 @@ const HeroSection = () => {
               </p> */}
             </div>
 
-            {/* Animated Subtitle */}
-            <div className="hero-subtitle flex flex-wrap items-center gap-3 mb-5">
-              {[
-                { icon: BarChart3, text: 'Clear risk parameters', bg: 'bg-[#C6FF00]/20', iconClass: 'text-[#C6FF00]' },
-                { icon: Wallet, text: '80 / 20 profit split', bg: 'bg-[#C6FF00]/20', iconClass: 'text-[#C6FF00]' },
-                { icon: TrendingUp, text: '14-day payout cycle', bg: 'bg-[#C6FF00]/20', iconClass: 'text-[#C6FF00]' }
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 px-3 py-2 bg-zinc-900/60 border border-zinc-800 rounded-lg hover:border-[#C6FF00]/50 transition-colors">
-                  <div className={`w-8 h-8 rounded ${item.bg} flex items-center justify-center`}>
-                    <item.icon className={`w-4 h-4 ${item.iconClass}`} />
+            {/* Reference-style Stats */}
+            <div className="hero-subtitle hero-stat mb-6 w-full max-w-[342px] text-center sm:max-w-xl lg:max-w-3xl lg:text-left">
+              <h2 className="text-xl font-black uppercase leading-tight text-white sm:text-3xl">
+                Trade. Grow. <NeonText color="cyan">Get Funded.</NeonText>
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base lg:mx-0">
+                Join a growing community of traders across multiple countries and take your trading journey to the next level with Trading Capital.
+              </p>
+              <div className="mt-6 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)] gap-1 sm:gap-6">
+                {[
+                  { end: 10, label: 'Countries' },
+                  { end: 500, label: 'Traders' },
+                  { end: 20000, prefix: '$', label: 'Payout Rewards' },
+                ].map((stat) => (
+                  <div key={stat.label} className="min-w-0 text-center">
+                    <div className="text-xl font-black leading-none text-[#C6FF00] drop-shadow-[0_0_18px_rgba(198,255,0,0.45)] sm:text-4xl">
+                      <CountUpStat end={stat.end} prefix={stat.prefix} />
+                    </div>
+                    <div className="mt-2 text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-zinc-400 sm:text-xs sm:tracking-[0.16em]">
+                      {stat.label}
+                    </div>
                   </div>
-                  <span className="text-zinc-300 text-sm">{item.text}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="hero-cta flex flex-wrap items-center gap-4 mb-6">
-              <Link to="/challenges">
-                <Button size="lg" className="bg-gradient-to-r from-[#C6FF00] to-[#C6FF00] hover:from-[#DFFF66] hover:to-[#C6FF00] text-black font-bold px-7 py-5 text-base shadow-[0_0_30px_rgba(198,255,0,0.4)] hover:shadow-[0_0_40px_rgba(198,255,0,0.6)] transition-all">
-                  <Rocket className="mr-2 w-5 h-5" />
+            <div className="hero-cta grid w-full max-w-[342px] grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-3 sm:max-w-xl">
+              <Link to="/challenges" className="min-w-0">
+                <Button size="lg" className="h-14 w-full bg-gradient-to-r from-[#C6FF00] to-[#C6FF00] px-3 text-sm font-bold text-black shadow-[0_0_30px_rgba(198,255,0,0.4)] transition-all hover:from-[#DFFF66] hover:to-[#C6FF00] hover:shadow-[0_0_40px_rgba(198,255,0,0.6)] sm:px-7 sm:text-base">
+                  <Rocket className="mr-2 hidden h-4 w-4 sm:block sm:h-5 sm:w-5" />
                   Become a TC Trader
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 hidden h-4 w-4 sm:block sm:h-5 sm:w-5" />
                 </Button>
               </Link>
-              <div className="flex items-center gap-2 px-4 py-2 bg-[#C6FF00]/10 border border-[#C6FF00]/30 rounded-full">
-                <Shield className="w-5 h-5 text-[#C6FF00]" />
-                <span className="text-[#C6FF00] text-sm font-medium">How It Works</span>
-              </div>
-            </div>
-
-            {/* Stats */}
-            <div className="flex flex-wrap gap-6">
-              <div className="hero-stat">
-                <div className="text-3xl font-black">
-                  <NeonText color="cyan">4</NeonText>
-                </div>
-                <div className="text-sm text-zinc-500">Account sizes</div>
-              </div>
-              <div className="hero-stat">
-                <div className="text-3xl font-black text-white">3</div>
-                <div className="text-sm text-zinc-500">Challenge routes</div>
-              </div>
-              <div className="hero-stat">
-                <div className="text-3xl font-black">
-                  <NeonText color="green">80%</NeonText>
-                </div>
-                <div className="text-sm text-zinc-500">Trader share</div>
-              </div>
+              <a
+                href="#how-it-works"
+                className="flex h-14 min-w-0 items-center justify-center rounded-full border border-[#C6FF00]/45 bg-[#C6FF00]/10 px-3 text-sm font-bold text-[#C6FF00] transition-colors hover:bg-[#C6FF00]/15 sm:px-7 sm:text-base"
+              >
+                <Shield className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                How It Works
+              </a>
             </div>
 
             {/* Social Media */}
@@ -206,11 +240,11 @@ const HeroSection = () => {
           </div>
 
           {/* Right - Brand/Data Preview */}
-          <div className="hero-phone relative flex justify-center lg:mt-4 lg:justify-end">
-            <div className="w-full max-w-[470px] rounded-2xl border border-[#C6FF00]/25 bg-black/45 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl">
-              <div className="mb-5 flex items-center justify-between gap-4 border-b border-white/10 pb-5">
+          <div className="hero-phone relative hidden min-w-0 justify-center lg:mt-4 lg:flex lg:justify-end">
+            <div className="w-[calc(100vw-3rem)] min-w-0 max-w-[470px] rounded-2xl border border-[#C6FF00]/25 bg-black/45 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:w-full">
+              <div className="mb-5 flex flex-col items-start gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
                 <img src="/tc-icon-transparent.png" alt="TC" className="h-16 w-auto object-contain" />
-                <div className="text-right">
+                <div className="text-left sm:text-right">
                   <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[#C6FF00]">TC Trader</div>
                   <div className="mt-2 text-sm text-zinc-400">Institutional funding route</div>
                 </div>
@@ -218,13 +252,13 @@ const HeroSection = () => {
 
               <div className="space-y-3">
                 {[
-                  { label: 'Challenge Routes', value: '1-Step / 2-Step' },
-                  { label: 'Trader Share', value: '80%' },
-                  { label: 'Payout Cycle', value: '14 Days' },
+                  { label: 'Funding Routes', value: '1-Step / 2-Step / Instant' },
+                  { label: 'Trader Share', value: '90%' },
+                  { label: 'Payout Cycle', value: '10 Days' },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center justify-between rounded-xl border border-white/10 bg-zinc-950/70 px-4 py-3">
+                  <div key={item.label} className="flex flex-col gap-1 rounded-xl border border-white/10 bg-zinc-950/70 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
                     <span className="text-sm text-zinc-500">{item.label}</span>
-                    <span className="text-sm font-bold text-white">{item.value}</span>
+                    <span className="text-sm font-bold text-white sm:text-right">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -424,12 +458,12 @@ const LivePayouts = () => {
       <div className="relative">
         <div className="grid gap-4 px-6 md:grid-cols-2">
           <div className="mx-auto w-full max-w-sm rounded-xl border border-zinc-800 bg-zinc-900 px-6 py-5 text-center">
-            <div className="text-[#C6FF00] font-black text-3xl">80%</div>
+            <div className="text-[#C6FF00] font-black text-3xl">90%</div>
             <div className="text-zinc-300 font-semibold">Trader Profit Share</div>
-            <p className="mt-2 text-sm text-zinc-500">When eligible for payout, traders keep 80% of approved profits.</p>
+            <p className="mt-2 text-sm text-zinc-500">When eligible for payout, traders keep 90% of approved profits.</p>
           </div>
           <div className="mx-auto w-full max-w-sm rounded-xl border border-zinc-800 bg-zinc-900 px-6 py-5 text-center">
-            <div className="text-[#C6FF00] font-black text-3xl">14 Days</div>
+            <div className="text-[#C6FF00] font-black text-3xl">10 Days</div>
             <div className="text-zinc-300 font-semibold">Payout Cycle</div>
             <p className="mt-2 text-sm text-zinc-500">Funded traders become eligible subject to account status and payout rules.</p>
           </div>
@@ -444,7 +478,7 @@ const WhyChooseUs = () => {
   const features = [
     'Clear rules', 'Transparent targets', 'Flexible trading conditions',
     'Structured progression', 'News trading allowed', 'Overnight holding allowed',
-    'Weekend holding allowed', 'Legitimate EAs allowed', '14-day payout cycle', '80 / 20 split'
+    'Weekend holding allowed', 'Legitimate EAs allowed', '10-day payout cycle', '90 / 10 split'
   ]
 
   return (
@@ -566,9 +600,9 @@ const JoinCommunity = () => {
 const FAQPreview = () => {
   const faqs = [
     { q: 'What is Trading Capital?', a: 'Trading Capital is a proprietary trading evaluation firm that assesses performance, discipline, and risk management through structured funding challenges in a simulated trading environment.' },
-    { q: 'Which challenge should I choose?', a: 'Choose 1-Step for the most direct route, or 2-Step for a lower entry price and wider drawdown parameters across two phases.' },
-    { q: 'What profit share do funded traders receive?', a: "Trading Capital's standard funded profit split is 80% to the trader and 20% to Trading Capital." },
-    { q: 'How often can I receive payouts?', a: 'Eligible funded traders operate on a 14-day payout cycle, subject to the applicable payout rules and account status.' },
+    { q: 'Which challenge should I choose?', a: 'Choose 1-Step for the direct challenge route, 2-Step for lower fees across two phases, or Instant Funding if you want to skip evaluation targets.' },
+    { q: 'What profit share do funded traders receive?', a: "Trading Capital's standard funded profit split is 90% to the trader and 10% to Trading Capital." },
+    { q: 'How often can I receive payouts?', a: 'Eligible funded traders operate on a 10-day payout cycle, subject to the applicable payout rules and account status.' },
   ]
 
   return (

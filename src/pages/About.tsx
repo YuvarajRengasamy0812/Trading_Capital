@@ -4,9 +4,9 @@ import { Card, CardContent } from '@/components/ui/card'
 const About = () => {
   const stats = [
     { value: 'TC', label: 'Brand Base' },
-    { value: '2', label: 'Challenge Routes' },
-    { value: '4', label: 'Account Sizes' },
-    { value: '80/20', label: 'Profit Split' },
+    { value: '3', label: 'Funding Routes' },
+    { value: '5', label: 'Account Sizes' },
+    { value: '90/10', label: 'Profit Split' },
   ]
 
   const values = [
@@ -183,8 +183,8 @@ const About = () => {
             {[
               { 
                 icon: Award, 
-                title: '80 / 20 Profit Split',
-                desc: 'Trading Capital standard funded profit split is 80% to the trader and 20% to Trading Capital.'
+                title: '90 / 10 Profit Split',
+                desc: 'Trading Capital standard funded profit split is 90% to the trader and 10% to Trading Capital.'
               },
               { 
                 icon: Shield, 
