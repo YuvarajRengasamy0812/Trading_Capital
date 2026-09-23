@@ -14,7 +14,7 @@ type ChallengeSelectorProps = {
   viewAllHref?: string
 }
 
-type ChallengeKey = '1step' | '2step'
+type ChallengeKey = '1step' | '2step' | 'instant'
 
 type PackageAccount = {
   size: string
@@ -39,30 +39,32 @@ const challengeData: Record<ChallengeKey, {
     riskPerTrade: string
     exposure: string
   }
+  notes?: string[]
   accounts: PackageAccount[]
 }> = {
   '1step': {
     name: '1-Step Challenge',
     shortName: '1-Step',
-    positioning: 'One step. One target.',
-    description: 'Reach 8%. Become a TC Trader.',
+    positioning: 'One step. Clear targets.',
+    description: 'Reach 8% in Phase 1 and 5% in Phase 2.',
     badge: 'Direct Route',
     icon: Zap,
     specs: {
-      profitTarget: '8%',
-      dailyLoss: '3%',
-      maxLoss: '6%',
-      profitSplit: '80% Trader',
-      payoutCycle: 'Every 14 days',
-      leverage: 'Up to 1:30',
+      profitTarget: '8% -> 5%',
+      dailyLoss: '4%',
+      maxLoss: '8%',
+      profitSplit: '90% Trader',
+      payoutCycle: 'Every 10 days',
+      leverage: '1:100',
       riskPerTrade: '1%',
       exposure: '3%',
     },
     accounts: [
-      { size: '$10K', price: 150, cta: 'Start 1-Step' },
-      { size: '$25K', price: 300, cta: 'Start 1-Step' },
-      { size: '$50K', price: 500, cta: 'Start 1-Step' },
-      { size: '$100K', price: 1000, cta: 'Start 1-Step' },
+      { size: '$10K', price: 99, cta: 'Start 1-Step' },
+      { size: '$25K', price: 179, cta: 'Start 1-Step' },
+      { size: '$50K', price: 299, cta: 'Start 1-Step' },
+      { size: '$100K', price: 479, cta: 'Start 1-Step' },
+      { size: '$200K', price: 799, cta: 'Start 1-Step' },
     ],
   },
   '2step': {
@@ -73,20 +75,47 @@ const challengeData: Record<ChallengeKey, {
     badge: 'Best Value',
     icon: Target,
     specs: {
-      profitTarget: '8% -> 5%',
+      profitTarget: '7% -> 4%',
       dailyLoss: '5%',
-      maxLoss: '10%',
-      profitSplit: '80% Trader',
-      payoutCycle: 'Every 14 days',
-      leverage: 'Up to 1:30',
+      maxLoss: '8%',
+      profitSplit: '90% Trader',
+      payoutCycle: 'Every 10 days',
+      leverage: '1:100',
       riskPerTrade: '1%',
       exposure: '3%',
     },
     accounts: [
-      { size: '$10K', price: 100, cta: 'Start 2-Step' },
-      { size: '$25K', price: 200, cta: 'Start 2-Step' },
-      { size: '$50K', price: 300, cta: 'Start 2-Step' },
-      { size: '$100K', price: 700, cta: 'Start 2-Step' },
+      { size: '$10K', price: 79, cta: 'Start 2-Step' },
+      { size: '$25K', price: 149, cta: 'Start 2-Step' },
+      { size: '$50K', price: 249, cta: 'Start 2-Step' },
+      { size: '$100K', price: 399, cta: 'Start 2-Step' },
+      { size: '$200K', price: 699, cta: 'Start 2-Step' },
+    ],
+  },
+  instant: {
+    name: 'Instant Funding',
+    shortName: 'Instant',
+    positioning: 'Instant funding. No evaluation.',
+    description: 'Start funded with no consistency rules or minimum profitable days.',
+    badge: 'Fastest Route',
+    icon: Shield,
+    specs: {
+      profitTarget: 'None',
+      dailyLoss: '4%',
+      maxLoss: '7%',
+      profitSplit: '90% Trader',
+      payoutCycle: 'Every 10 days',
+      leverage: '1:50',
+      riskPerTrade: '1%',
+      exposure: '3%',
+    },
+    notes: ['No consistency rules', 'No minimum profitable days'],
+    accounts: [
+      { size: '$10K', price: 499, cta: 'Start Instant' },
+      { size: '$25K', price: 999, cta: 'Start Instant' },
+      { size: '$50K', price: 1499, cta: 'Start Instant' },
+      { size: '$100K', price: 2500, cta: 'Start Instant' },
+      { size: '$200K', price: 5000, cta: 'Start Instant' },
     ],
   },
 }
@@ -119,7 +148,7 @@ const ChallengeSelector = ({
         </div>
       )}
 
-      <div className="promo-banners grid gap-4 mb-8 md:grid-cols-2">
+      <div className="promo-banners grid gap-4 mb-8 md:grid-cols-3">
         {Object.entries(challengeData).map(([key, challenge]) => {
           const Icon = challenge.icon
           const active = activeTab === key
@@ -185,6 +214,7 @@ const ChallengeSelector = ({
                 ['Max Risk / Trade', current.specs.riskPerTrade],
                 ['Max Total Exposure', current.specs.exposure],
                 ['Leverage', current.specs.leverage],
+                ...(current.notes?.map((note) => [note, 'Yes'] as [string, string]) ?? []),
               ].map(([label, value]) => (
                 <div key={label} className="flex items-center justify-between gap-4 border-b border-zinc-800 py-3 last:border-b-0">
                   <span className="text-sm text-zinc-500">{label}</span>
@@ -202,7 +232,7 @@ const ChallengeSelector = ({
               <p className="text-sm text-zinc-500">Approved launch pricing for {current.shortName} accounts.</p>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
             {current.accounts.map((account) => (
               <div
                 key={account.size}
